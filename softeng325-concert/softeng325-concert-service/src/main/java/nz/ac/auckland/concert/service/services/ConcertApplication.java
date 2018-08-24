@@ -1,4 +1,18 @@
 package nz.ac.auckland.concert.service.services;
 
-public class ConcertApplication {
+import javax.ws.rs.core.Application;
+import java.util.HashSet;
+import java.util.Set;
+
+public class ConcertApplication extends Application{
+    private Set<Object> singleton =new HashSet<>();
+
+    public ConcertApplication() {
+        singleton.add(new ConcertResource());
+    }
+
+    @Override
+    public Set<Object> getSingletons(){
+        return singleton;
+    }
 }
