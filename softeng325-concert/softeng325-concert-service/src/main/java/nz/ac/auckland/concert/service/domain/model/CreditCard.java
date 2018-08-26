@@ -3,6 +3,8 @@ package nz.ac.auckland.concert.service.domain.model;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
+import javax.persistence.Embeddable;
+import javax.persistence.Entity;
 import java.time.LocalDate;
 
 /**
@@ -15,6 +17,7 @@ import java.time.LocalDate;
  * _expiryDate the credit card's expiry date. 
  *
  */
+@Embeddable
 public class CreditCard {
 	
 	public enum Type {Visa, Master};

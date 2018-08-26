@@ -3,6 +3,9 @@ package nz.ac.auckland.concert.service.domain.model;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
+import javax.persistence.Embeddable;
+import javax.persistence.Entity;
+
 /**
  * DTO class to represent users. 
  * 
@@ -13,6 +16,7 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
  * _lastname  the user's family name.
  *
  */
+@Embeddable
 public class User {
 
 	private String _username;

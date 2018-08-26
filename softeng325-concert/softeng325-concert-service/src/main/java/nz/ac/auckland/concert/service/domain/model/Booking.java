@@ -4,6 +4,9 @@ import nz.ac.auckland.concert.common.types.PriceBand;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.HashSet;
@@ -23,8 +26,10 @@ import java.util.Set;
  *                 same price band).
  *
  */
+@Entity
 public class Booking {
-
+	@Id
+	@GeneratedValue
 	private Long _concertId;
 	private String _concertTitle;
 	private LocalDateTime _dateTime;

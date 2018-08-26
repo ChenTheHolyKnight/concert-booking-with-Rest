@@ -4,6 +4,7 @@ import nz.ac.auckland.concert.common.types.PriceBand;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
+import javax.persistence.Embeddable;
 import java.time.LocalDateTime;
 
 /**
@@ -17,6 +18,7 @@ import java.time.LocalDateTime;
  *                reserved.
  *
  */
+@Embeddable
 public class ReservationRequest {
 
 	private int _numberOfSeats;

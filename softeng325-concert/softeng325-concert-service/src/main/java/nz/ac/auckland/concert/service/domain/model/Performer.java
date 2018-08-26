@@ -4,6 +4,9 @@ import nz.ac.auckland.concert.common.types.Genre;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
@@ -20,13 +23,15 @@ import java.util.Set;
  *             playing. 
  *             
  */
+@Entity
 public class Performer {
 
 	private Long _id;
 	private String _name;
 	private String _imageName;
 	private Genre _genre;
-	
+
+	@ManyToMany
 	private Set<Long> _concertIds;
 	
 	public Performer() {}

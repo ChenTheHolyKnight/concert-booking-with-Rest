@@ -2,9 +2,7 @@ package nz.ac.auckland.concert.service.domain.model;
 
 import nz.ac.auckland.concert.common.types.PriceBand;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Map;
@@ -19,6 +17,8 @@ public class Concert {
     private String _title;
     private Set<LocalDateTime> _dates;
     private Map<PriceBand, BigDecimal> _tariff;
+
+    @ManyToMany
     private Set<Long> _performerIds;
 
     public Concert(){
