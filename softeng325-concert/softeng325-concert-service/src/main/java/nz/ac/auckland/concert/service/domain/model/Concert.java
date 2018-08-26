@@ -21,6 +21,19 @@ public class Concert {
     private Map<PriceBand, BigDecimal> _tariff;
     private Set<Long> _performerIds;
 
+    public Concert(){
+
+    }
+
+
+    public Concert(Long _id, String _title, Set<LocalDateTime> _dates, Map<PriceBand, BigDecimal> _tariff, Set<Long> _performerIds) {
+        this._id = _id;
+        this._title = _title;
+        this._dates = _dates;
+        this._tariff = _tariff;
+        this._performerIds = _performerIds;
+    }
+
     public Long get_id() {
         return _id;
     }

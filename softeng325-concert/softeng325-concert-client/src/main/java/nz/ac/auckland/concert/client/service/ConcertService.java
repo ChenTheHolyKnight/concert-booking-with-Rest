@@ -39,7 +39,7 @@ public interface ConcertService {
 	Set<ConcertDTO> getConcerts() throws ServiceException;
 	
 	/**
-	 * Returns a Set of PerformerDTO objects. Each member of the Set describes
+	 * Returns a Set of Performer objects. Each member of the Set describes
 	 * a Performer.
 	 * 
 	 * @throws ServiceException if there's an error communicating with the
@@ -56,13 +56,13 @@ public interface ConcertService {
 	 * properties are expected to be set: username, password, firstname
 	 * and lastname. 
 	 * 
-	 * @return a new UserDTO object, whose identity property is also set.
+	 * @return a new User object, whose identity property is also set.
 	 * 
 	 * @throws ServiceException in response to any of the following conditions.
 	 * The exception's message is defined in 
 	 * class nz.ac.auckland.concert.common.Messages.
 	 * 
-	 * Condition: the expected UserDTO attributes are not set.
+	 * Condition: the expected User attributes are not set.
 	 * Messages.CREATE_USER_WITH_MISSING_FIELD
 	 * 
 	 * Condition: the supplied username is already taken.
@@ -81,13 +81,13 @@ public interface ConcertService {
 	 * @param user stores the user's authentication credentials. Properties 
 	 * username and password must be set.
 	 * 
-	 * @return a UserDTO whose properties are all set. 
+	 * @return a User whose properties are all set.
 	 * 
 	 * @throws ServiceException in response to any of the following conditions.
 	 * The exception's message is defined in 
 	 * class nz.ac.auckland.concert.common.Messages.
 	 * 
-	 * Condition: the UserDTO parameter doesn't have values for username and/or
+	 * Condition: the User parameter doesn't have values for username and/or
 	 * password.
 	 * Messages.AUTHENTICATE_USER_WITH_MISSING_FIELDS
 	 * 
@@ -133,9 +133,9 @@ public interface ConcertService {
 	 * number of seats, price band, concert identifier, and concert date. All 
 	 * fields are expected to be filled.
 	 * 
-	 * @return a ReservationDTO object that describes the reservation. This 
-	 * includes the original ReservationDTO parameter plus the seats (a Set of
-	 * SeatDTO objects) that have been reserved.
+	 * @return a Reservation object that describes the reservation. This
+	 * includes the original Reservation parameter plus the seats (a Set of
+	 * Seat objects) that have been reserved.
 	 * 
 	 * @throws ServiceException in response to any of the following conditions.
 	 * The exception's message is defined in 
@@ -148,10 +148,10 @@ public interface ConcertService {
 	 * recognised by the remote service.
 	 * Messages.BAD_AUTHENTICATON_TOKEN
 	 * 
-	 * Condition: the ReservationRequestDTO parameter is incomplete.
+	 * Condition: the ReservationRequest parameter is incomplete.
 	 * Messages.RESERVATION_REQUEST_WITH_MISSING_FIELDS
 	 * 
-	 * Condition: the ReservationRequestDTO parameter specifies a reservation
+	 * Condition: the ReservationRequest parameter specifies a reservation
 	 * date/time for when the concert is not scheduled.
 	 * Messages.CONCERT_NOT_SCHEDULED_ON_RESERVATION_DATE
 	 * 
@@ -168,7 +168,7 @@ public interface ConcertService {
 	/**
 	 * Confirms a reservation. Prior to calling this method, a successful 
 	 * reservation request should have been made via a call to reserveSeats(),
-	 * returning a ReservationDTO. 
+	 * returning a Reservation.
 	 *  
 	 * @param reservation a description of the reservation to confirm.
 	 * 
