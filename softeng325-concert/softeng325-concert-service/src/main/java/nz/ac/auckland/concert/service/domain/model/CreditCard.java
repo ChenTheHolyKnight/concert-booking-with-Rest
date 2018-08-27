@@ -5,6 +5,8 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import javax.persistence.Embeddable;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.time.LocalDate;
 
 /**
@@ -17,11 +19,14 @@ import java.time.LocalDate;
  * _expiryDate the credit card's expiry date. 
  *
  */
-@Embeddable
+@Entity
 public class CreditCard {
 	
 	public enum Type {Visa, Master};
-	
+
+	@Id
+	@GeneratedValue
+	private long id;
 	private Type _type;
 	private String _name;
 	private String _number;

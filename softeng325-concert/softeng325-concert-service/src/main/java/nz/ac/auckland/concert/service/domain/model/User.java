@@ -5,6 +5,8 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import javax.persistence.Embeddable;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 /**
  * DTO class to represent users. 
@@ -16,9 +18,11 @@ import javax.persistence.Entity;
  * _lastname  the user's family name.
  *
  */
-@Embeddable
+@Entity
 public class User {
-
+	@Id
+	@GeneratedValue
+	private Long id;
 	private String _username;
 	private String _password;
 	private String _firstname;
