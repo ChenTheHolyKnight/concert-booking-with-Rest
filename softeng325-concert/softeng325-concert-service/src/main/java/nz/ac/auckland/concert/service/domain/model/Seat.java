@@ -2,13 +2,11 @@ package nz.ac.auckland.concert.service.domain.model;
 
 import nz.ac.auckland.concert.common.types.SeatNumber;
 import nz.ac.auckland.concert.common.types.SeatRow;
+import nz.ac.auckland.concert.service.domain.jpa.SeatNumberConverter;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Embeddable;
-import javax.persistence.Enumerated;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 /**
  * DTO class to represent seats at the concert venue. 
@@ -22,7 +20,7 @@ import javax.persistence.OneToOne;
 public class Seat {
 	@Enumerated
 	private SeatRow _row;
-	@OneToOne(cascade = CascadeType.ALL)
+	@Convert(converter = SeatNumberConverter.class)
 	private SeatNumber _number;
 	
 	public Seat() {}
