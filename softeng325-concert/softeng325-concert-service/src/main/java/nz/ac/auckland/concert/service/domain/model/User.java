@@ -3,10 +3,7 @@ package nz.ac.auckland.concert.service.domain.model;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-import javax.persistence.Embeddable;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * DTO class to represent users. 
@@ -23,7 +20,9 @@ public class User {
 	@Id
 	@GeneratedValue
 	private Long id;
+	@Column(nullable = false)
 	private String _username;
+	@Column(nullable = false)
 	private String _password;
 	private String _firstname;
 	private String _lastname;
