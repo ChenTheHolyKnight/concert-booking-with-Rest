@@ -3,10 +3,7 @@ package nz.ac.auckland.concert.service.domain.model;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-import javax.persistence.Embeddable;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 /**
@@ -27,6 +24,7 @@ public class CreditCard {
 	@Id
 	@GeneratedValue
 	private long id;
+	@Enumerated
 	private Type _type;
 	private String _name;
 	private String _number;

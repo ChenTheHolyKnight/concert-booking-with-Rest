@@ -4,6 +4,7 @@ import nz.ac.auckland.concert.common.types.Genre;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
@@ -31,7 +32,7 @@ public class Performer {
 	private String _imageName;
 	private Genre _genre;
 
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.ALL)
 	private Set<Long> _concertIds;
 	
 	public Performer() {}

@@ -18,7 +18,7 @@ public class Concert {
     private Set<LocalDateTime> _dates;
     private Map<PriceBand, BigDecimal> _tariff;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     private Set<Long> _performerIds;
 
     public Concert(){

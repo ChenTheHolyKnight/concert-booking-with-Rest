@@ -5,6 +5,7 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import javax.persistence.Embeddable;
+import javax.persistence.Enumerated;
 import java.time.LocalDateTime;
 
 /**
@@ -22,6 +23,7 @@ import java.time.LocalDateTime;
 public class ReservationRequest {
 
 	private int _numberOfSeats;
+	@Enumerated
 	private PriceBand _seatType;
 	private Long _concertId;
 	private LocalDateTime _date;

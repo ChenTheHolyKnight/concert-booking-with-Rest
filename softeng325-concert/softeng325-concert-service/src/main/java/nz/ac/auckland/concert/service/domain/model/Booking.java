@@ -5,6 +5,7 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.time.LocalDateTime;
@@ -34,6 +35,7 @@ public class Booking {
 	private String _concertTitle;
 	private LocalDateTime _dateTime;
 	private Set<Seat> _seats;
+	@Enumerated
 	private PriceBand _priceBand;
 
 	public Booking() {

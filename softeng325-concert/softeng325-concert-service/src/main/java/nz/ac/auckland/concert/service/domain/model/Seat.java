@@ -5,7 +5,10 @@ import nz.ac.auckland.concert.common.types.SeatRow;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Embeddable;
+import javax.persistence.Enumerated;
+import javax.persistence.OneToOne;
 
 /**
  * DTO class to represent seats at the concert venue. 
@@ -17,8 +20,9 @@ import javax.persistence.Embeddable;
  */
 @Embeddable
 public class Seat {
-
+	@Enumerated
 	private SeatRow _row;
+	@OneToOne(cascade = CascadeType.ALL)
 	private SeatNumber _number;
 	
 	public Seat() {}
