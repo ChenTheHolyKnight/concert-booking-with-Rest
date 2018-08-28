@@ -4,10 +4,7 @@ import nz.ac.auckland.concert.common.types.Genre;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
@@ -26,11 +23,17 @@ import java.util.Set;
  */
 @Entity
 public class Performer {
-
+	@Id
+	@GeneratedValue
 	private Long _id;
-	private String _name;
-	private String _imageName;
+	@Column(nullable = false,name = "Genre")
 	private Genre _genre;
+	@Column(nullable = false,name = "Image name")
+	private String _imageName;
+	@Column(nullable = false,name = "Name of performer")
+	private String _name;
+
+
 
 	@ManyToMany(cascade = CascadeType.ALL)
 	private Set<Long> _concertIds;

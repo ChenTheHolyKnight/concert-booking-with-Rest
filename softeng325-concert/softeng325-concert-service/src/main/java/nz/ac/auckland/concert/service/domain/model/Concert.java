@@ -14,6 +14,7 @@ public class Concert {
     @Id
     @GeneratedValue
     private Long _id;
+    @Column(nullable = false,name = "Title")
     private String _title;
     private Set<LocalDateTime> _dates;
     private Map<PriceBand, BigDecimal> _tariff;
