@@ -16,7 +16,7 @@ import javax.persistence.*;
  * _number the number of the seat.
  *
  */
-@Embeddable
+@Entity
 public class Seat {
 	@Enumerated
 	private SeatRow _row;

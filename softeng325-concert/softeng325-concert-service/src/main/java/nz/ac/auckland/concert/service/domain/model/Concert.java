@@ -17,9 +17,10 @@ public class Concert {
     @Column(nullable = false,name = "Title")
     private String _title;
     private Set<LocalDateTime> _dates;
+    @ElementCollection
     private Map<PriceBand, BigDecimal> _tariff;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ElementCollection
     private Set<Long> _performerIds;
 
     public Concert(){

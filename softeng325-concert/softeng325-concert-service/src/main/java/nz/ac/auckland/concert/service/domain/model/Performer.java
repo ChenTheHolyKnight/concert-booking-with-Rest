@@ -35,7 +35,7 @@ public class Performer {
 
 
 
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ElementCollection
 	private Set<Long> _concertIds;
 	
 	public Performer() {}

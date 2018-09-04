@@ -27,6 +27,7 @@ public class Reservation {
 	@GeneratedValue
 	private Long _id;
 	private ReservationRequest _request;
+	@OneToMany
 	private Set<Seat> _seats;
 
 	public Reservation() {}
