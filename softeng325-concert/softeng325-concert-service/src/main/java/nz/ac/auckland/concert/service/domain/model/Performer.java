@@ -35,17 +35,17 @@ public class Performer {
 
 
 
-	@ElementCollection
-	private Set<Long> _concertIds;
+	@ManyToMany
+	private Set<Concert> _concerts;
 	
 	public Performer() {}
 	
-	public Performer(Long id, String name, String imageName, Genre genre, Set<Long> concertIds) {
+	public Performer(Long id, String name, String imageName, Genre genre, Set<Concert> concerts) {
 		_id = id;
 		_name = name;
 		_imageName = imageName;
 		_genre = genre;
-		_concertIds = new HashSet<Long>(concertIds);
+		_concerts = new HashSet<Concert>(concerts);
 	}
 	
 	public Long getId() {
@@ -60,8 +60,8 @@ public class Performer {
 		return _imageName;
 	}
 	
-	public Set<Long> getConcertIds() {
-		return Collections.unmodifiableSet(_concertIds);
+	public Set<Concert> getConcertIds() {
+		return Collections.unmodifiableSet(_concerts);
 	}
 	
 	@Override
@@ -76,7 +76,7 @@ public class Performer {
             append(_name, rhs._name).
             append(_imageName, rhs._imageName).
             append(_genre, rhs._genre).
-            append(_concertIds, rhs._concertIds).
+            //append(_concerts, rhs._concerts).
             isEquals();
 	}
 	
@@ -86,7 +86,7 @@ public class Performer {
 	            append(_name).
 	            append(_imageName).
 	            append(_genre).
-	            append(_concertIds).
+	            //append(_concerts).
 	            hashCode();
 	}
 }
