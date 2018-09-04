@@ -39,31 +39,31 @@ public class Concert {
         this._performers = performers;
     }
 
-    public Long get_id() {
+    public Long getId() {
         return _id;
     }
 
-    public void set_id(Long _id) {
+    public void setId(Long _id) {
         this._id = _id;
     }
 
-    public String get_title() {
+    public String getTitle() {
         return _title;
     }
 
-    public void set_title(String _title) {
+    public void setTitle(String _title) {
         this._title = _title;
     }
 
-    public Set<LocalDateTime> get_dates() {
+    public Set<LocalDateTime> getDates() {
         return _dates;
     }
 
-    public Map<PriceBand, BigDecimal> get_tariff() {
+    public Map<PriceBand, BigDecimal> getTariff() {
         return _tariff;
     }
 
-    public Set<Performer> get_performerIds() {
+    public Set<Performer> getPerformerIds() {
         return _performers;
     }
 
