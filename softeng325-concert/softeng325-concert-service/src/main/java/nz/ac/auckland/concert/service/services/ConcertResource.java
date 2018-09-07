@@ -1,6 +1,8 @@
 package nz.ac.auckland.concert.service.services;
 
+import nz.ac.auckland.concert.common.dto.ConcertDTO;
 import nz.ac.auckland.concert.service.domain.model.Concert;
+import nz.ac.auckland.concert.service.services.mapper.ConcertMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,7 +14,9 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.atomic.AtomicLong;
 
 
@@ -22,12 +26,7 @@ public class ConcertResource {
             .getLogger(ConcertResource.class);
 
     // Declare necessary instance variables.
-    private AtomicLong _atomicLong=new AtomicLong();
-
     private PersistenceManager _persistenceManager;
-
-    private List<Concert> _concerts=new ArrayList<>();
-
 
     public ConcertResource(){
         _persistenceManager=PersistenceManager.instance();
@@ -74,29 +73,26 @@ public class ConcertResource {
     }
 
 
-    /**
-     * Retrieves a collection of Concerts, where the "start" query parameter
-     * identifies an index position, and "size" represents the maximum number
-     * of successive Concerts to return. The HTTP response message returns 200.
-     *
-     * When clientId is null, the HTTP request message doesn't contain a cookie
-     * named clientId (Config.CLIENT_COOKIE), this method generates a new
-     * cookie, whose value is a randomly generated UUID. This method returns
-     * the new cookie as part of the HTTP response message.
-     *
-     * This method maps to the URI pattern <base-uri>/concerts?start&size.
-     *
-     * @param start the ID of a Concert from which to start retrieving
-     * Concerts.
-     *
-     * @param size the maximum number of Concerts to retrieve.
-     *
-     * @param clientId a cookie named Config.CLIENT_COOKIE that may be sent
-     * by the client.
-     *
-     * @return a Response object containing a List of Concerts. The List may be
-     * empty.
-     */
+    @GET
+    @Path("{id}")
+    @Consumes({MediaType.APPLICATION_XML})
+    public Response retrieveAllConcert(@PathParam("id") long id) {
+        EntityManager entityManager=_persistenceManager.createEntityManager();
+        entityManager.getTransaction().begin();
+        List<Concert> concerts=entityManager.createQuery("select c from CONCERT c",Concert.class).getResultList();
+        Set<ConcertDTO> concertDTOS=new HashSet<>();
+        concerts.forEach(concert -> concertDTOS.add(ConcertMapper.toDTO(concert)));
+        entityManager.getTransaction().commit();
+
+
+
+        if(!concertDTOS.isEmpty()){
+            GenericEntity<Set<ConcertDTO>> entity = new GenericEntity<Set<ConcertDTO>>(concertDTOS) {};
+            return Response.ok(entity).build();
+        }else{
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+    }
 
 
 

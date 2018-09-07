@@ -8,6 +8,7 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
@@ -63,8 +64,12 @@ public class Concert {
         return _tariff;
     }
 
-    public Set<Performer> getPerformerIds() {
-        return _performers;
+    public Set<Long> getPerformerIds() {
+        Set<Long> ids=new HashSet<>();
+        _performers.forEach(e->{
+            ids.add(e.getId());
+        });
+        return ids;
     }
 
     @Override

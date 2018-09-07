@@ -2,7 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5527870a-7854-4f8d-bbdf-dd15d0c0541c" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/services/mapper/ConcertMapper.java" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9dfdfda6-80c9-42a2-86b8-06ca784361a1.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/9dfdfda6-80c9-42a2-86b8-06ca784361a1.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/softeng325-concert-client/src/main/java/nz/ac/auckland/concert/client/service/DefaultService.java" afterPath="$PROJECT_DIR$/softeng325-concert-client/src/main/java/nz/ac/auckland/concert/client/service/DefaultService.java" />
+      <change beforePath="$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/domain/model/Concert.java" afterPath="$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/domain/model/Concert.java" />
+      <change beforePath="$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/services/ConcertResource.java" afterPath="$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/services/ConcertResource.java" />
     </list>
     <ignored path="$PROJECT_DIR$/softeng325-concert-service/target/" />
     <ignored path="$PROJECT_DIR$/softeng325-concert-client/target/" />
@@ -55,42 +62,64 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="BANKACCOUNT" value="1" />
-          <entry key="CONCERT" value="1" />
-          <entry key="USERS" value="2" />
-          <entry key="sql" value="2" />
-          <entry key="xml" value="1" />
+          <entry key="ADDRESS_ONETOONE" value="1" />
+          <entry key="BANKACCOUNT" value="3" />
+          <entry key="BID" value="1" />
+          <entry key="BID_ONETOMANY" value="1" />
+          <entry key="BILLINGDETAILS" value="1" />
+          <entry key="CATEGORY" value="1" />
+          <entry key="CATEGORY_ITEM" value="1" />
+          <entry key="CONCERT" value="3" />
+          <entry key="CREDITCARD" value="2" />
+          <entry key="IMAGE" value="1" />
+          <entry key="ITEM" value="1" />
+          <entry key="ITEM_BUYER" value="1" />
+          <entry key="ITEM_ONETOMANY" value="1" />
+          <entry key="ITEM_ONETOONE" value="1" />
+          <entry key="ITEM_SHIPMENT" value="1" />
+          <entry key="PERFORMER" value="1" />
+          <entry key="SHIPMENT_ONETOONE" value="1" />
+          <entry key="USERS" value="3" />
+          <entry key="USER_ONETOONE" value="1" />
+          <entry key="iml" value="1" />
+          <entry key="properties" value="1" />
+          <entry key="sql" value="3" />
+          <entry key="xml" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Database Element" value="4" />
+          <entry key="Database Element" value="26" />
+          <entry key="IDEA_MODULE" value="1" />
+          <entry key="Properties" value="1" />
           <entry key="SQL" value="1" />
-          <entry key="Scratch" value="1" />
-          <entry key="XML" value="1" />
+          <entry key="Scratch" value="2" />
+          <entry key="XML" value="3" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="ConcertDTO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/softeng325-concert-common/src/main/java/nz/ac/auckland/concert/common/dto/ConcertDTO.java">
+      <file leaf-file-name="ConcertResource.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/services/ConcertResource.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
-              <caret line="80" column="25" lean-forward="false" selection-start-line="80" selection-start-column="25" selection-end-line="80" selection-end-column="25" />
+            <state relative-caret-position="1239">
+              <caret line="76" column="17" lean-forward="true" selection-start-line="76" selection-start-column="17" selection-end-line="76" selection-end-column="17" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#934#935#0" expanded="true" />
+                <element signature="e#999#1000#0" expanded="true" />
+                <element signature="e#3109#3126#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConcertResource.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/services/ConcertResource.java">
+      <file leaf-file-name="ConcertMapper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/services/mapper/ConcertMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+            <state relative-caret-position="252">
+              <caret line="12" column="35" lean-forward="false" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -101,28 +130,70 @@
       <file leaf-file-name="Concert.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/domain/model/Concert.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1470">
-              <caret line="93" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+            <state relative-caret-position="315">
+              <caret line="66" column="19" lean-forward="false" selection-start-line="66" selection-start-column="19" selection-end-line="66" selection-end-column="19" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="persistence.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/softeng325-concert-service/src/main/resources/META-INF/persistence.xml">
+      <file leaf-file-name="ConcertDTO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/softeng325-concert-common/src/main/java/nz/ac/auckland/concert/common/dto/ConcertDTO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="30" column="92" lean-forward="false" selection-start-line="30" selection-start-column="63" selection-end-line="30" selection-end-column="92" />
+            <state relative-caret-position="210">
+              <caret line="48" column="11" lean-forward="false" selection-start-line="48" selection-start-column="11" selection-end-line="48" selection-end-column="11" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Performer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/domain/model/Performer.java">
+      <file leaf-file-name="DefaultService.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/softeng325-concert-client/src/main/java/nz/ac/auckland/concert/client/service/DefaultService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1533">
-              <caret line="88" column="18" lean-forward="false" selection-start-line="88" selection-start-column="18" selection-end-line="88" selection-end-column="18" />
+            <state relative-caret-position="126">
+              <caret line="9" column="4" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConcertService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/softeng325-concert-client/src/main/java/nz/ac/auckland/concert/client/service/ConcertService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-126">
+              <caret line="21" column="77" lean-forward="false" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="77" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PersistenceManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/services/PersistenceManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="588">
+              <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConcertApplication.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/services/ConcertApplication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <folding>
+                <element signature="e#391#392#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConcertServiceTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/softeng325-concert-client/src/test/java/nz/ac/auckland/concert/client/service/ConcertServiceTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1302">
+              <caret line="100" column="0" lean-forward="false" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -156,7 +227,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/softeng325-concert-client/src/main/java/nz/ac/auckland/concert/client/service/DefaultService.java" />
         <option value="$PROJECT_DIR$/softeng325-concert-service/src/main/resources/META-INF/persistence.xml" />
         <option value="$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/domain/model/BookingDTO.java" />
         <option value="$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/domain/model/CreditCard.java" />
@@ -176,8 +246,10 @@
         <option value="$PROJECT_DIR$/softeng325-concert-common/src/main/java/nz/ac/auckland/concert/common/dto/SeatDTO.java" />
         <option value="$PROJECT_DIR$/softeng325-concert-common/src/main/java/nz/ac/auckland/concert/common/dto/UserDTO.java" />
         <option value="$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/domain/model/Performer.java" />
+        <option value="$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/services/mapper/ConcertMapper.java" />
         <option value="$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/domain/model/Concert.java" />
         <option value="$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/services/ConcertResource.java" />
+        <option value="$PROJECT_DIR$/softeng325-concert-client/src/main/java/nz/ac/auckland/concert/client/service/DefaultService.java" />
       </list>
     </option>
   </component>
@@ -210,11 +282,11 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="426" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="428" />
     <option name="y" value="-15" />
-    <option name="width" value="1209" />
-    <option name="height" value="915" />
+    <option name="width" value="1207" />
+    <option name="height" value="914" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -234,8 +306,6 @@
     <panes>
       <pane id="Scope" />
       <pane id="AndroidView" />
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -253,6 +323,64 @@
               <item name="softeng325-concert" type="462c0819:PsiDirectoryNode" />
               <item name="softeng325-concert-client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="softeng325-concert" type="b2602c69:ProjectViewProjectNode" />
+              <item name="softeng325-concert" type="462c0819:PsiDirectoryNode" />
+              <item name="softeng325-concert-client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="softeng325-concert" type="b2602c69:ProjectViewProjectNode" />
+              <item name="softeng325-concert" type="462c0819:PsiDirectoryNode" />
+              <item name="softeng325-concert-client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="softeng325-concert" type="b2602c69:ProjectViewProjectNode" />
+              <item name="softeng325-concert" type="462c0819:PsiDirectoryNode" />
+              <item name="softeng325-concert-client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="softeng325-concert" type="b2602c69:ProjectViewProjectNode" />
+              <item name="softeng325-concert" type="462c0819:PsiDirectoryNode" />
+              <item name="softeng325-concert-client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="softeng325-concert" type="b2602c69:ProjectViewProjectNode" />
+              <item name="softeng325-concert" type="462c0819:PsiDirectoryNode" />
+              <item name="softeng325-concert-client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="softeng325-concert" type="b2602c69:ProjectViewProjectNode" />
+              <item name="softeng325-concert" type="462c0819:PsiDirectoryNode" />
+              <item name="softeng325-concert-client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="softeng325-concert" type="b2602c69:ProjectViewProjectNode" />
+              <item name="softeng325-concert" type="462c0819:PsiDirectoryNode" />
+              <item name="softeng325-concert-client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="softeng325-concert" type="b2602c69:ProjectViewProjectNode" />
@@ -356,6 +484,12 @@
             <path>
               <item name="softeng325-concert" type="b2602c69:ProjectViewProjectNode" />
               <item name="softeng325-concert" type="462c0819:PsiDirectoryNode" />
+              <item name="softeng325-concert-common" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="softeng325-concert" type="b2602c69:ProjectViewProjectNode" />
+              <item name="softeng325-concert" type="462c0819:PsiDirectoryNode" />
               <item name="softeng325-concert-service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -427,7 +561,8 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="softeng325-concert" type="b2602c69:ProjectViewProjectNode" />
@@ -441,6 +576,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -449,6 +586,9 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Labs/Lab4" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
@@ -476,45 +616,103 @@
       <option name="HEIGHT" value="0" />
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <option name="WIDTH" value="0" />
-      <method v="2">
+      <module />
+      <method>
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <method v="2">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method>
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="ConcertServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="softeng325-concert-client" />
-      <extension name="coverage">
+      <extension name="coverage" enabled="false" merge="false" runner="idea">
         <pattern>
           <option name="PATTERN" value="nz.ac.auckland.concert.client.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <module name="softeng325-concert-client" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="nz.ac.auckland.concert.client.service" />
       <option name="MAIN_CLASS_NAME" value="nz.ac.auckland.concert.client.service.ConcertServiceTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <method v="2">
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method>
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
       <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
       <properties />
       <listeners />
-      <method v="2">
+      <method>
         <option name="Make" enabled="true" />
       </method>
     </configuration>
@@ -523,15 +721,18 @@
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
       <option name="PROGRAM_PARAMETERS" />
       <predefined_log_file id="idea.log" enabled="true" />
-      <method v="2">
+      <method>
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
-      <list>
-        <item itemvalue="JUnit.ConcertServiceTest" />
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="JUnit.ConcertServiceTest" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -548,59 +749,75 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ConcertServiceTest - 2018.09.03 at 17h 28m 47s.xml">
-      <configuration name="ConcertServiceTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ConcertServiceTest - 2018.09.03 at 17h 49m 21s.xml">
-      <configuration name="ConcertServiceTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ConcertServiceTest - 2018.09.03 at 17h 49m 24s.xml">
-      <configuration name="ConcertServiceTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="ConcertServiceTest - 2018.09.03 at 17h 49m 41s.xml">
       <configuration name="ConcertServiceTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="ConcertServiceTest - 2018.09.04 at 21h 17m 01s.xml">
       <configuration name="ConcertServiceTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="ConcertServiceTest - 2018.09.04 at 21h 21m 41s.xml">
+      <configuration name="ConcertServiceTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ConcertServiceTest - 2018.09.04 at 21h 49m 18s.xml">
+      <configuration name="ConcertServiceTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ConcertServiceTest - 2018.09.07 at 17h 13m 21s.xml">
+      <configuration name="ConcertServiceTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ConcertServiceTest - 2018.09.07 at 17h 21m 21s.xml">
+      <configuration name="ConcertServiceTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ConcertServiceTest - 2018.09.07 at 17h 21m 53s.xml">
+      <configuration name="ConcertServiceTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ConcertServiceTest - 2018.09.07 at 17h 23m 18s.xml">
+      <configuration name="ConcertServiceTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ConcertServiceTest - 2018.09.07 at 17h 23m 46s.xml">
+      <configuration name="ConcertServiceTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ConcertServiceTest - 2018.09.07 at 18h 51m 35s.xml">
+      <configuration name="ConcertServiceTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1075000" />
+    <option name="totallyTimeSpent" value="3863000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921588" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42921856" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18152525" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23329559" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24929178" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="RNConsole" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22556391" sideWeight="0.5" order="5" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23254564" sideWeight="0.5" order="5" side_tool="false" content_ui="combo" />
       <window_info id="Learn" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295302" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3286119" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3295302" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286119" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -644,61 +861,12 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/softeng325-concert-common/src/main/java/nz/ac/auckland/concert/common/dto/ConcertDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/services/ConcertResource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" column="20" lean-forward="true" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/domain/model/Concert.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1470">
-          <caret line="93" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/softeng325-concert-service/src/main/resources/META-INF/persistence.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="30" column="92" lean-forward="true" selection-start-line="30" selection-start-column="63" selection-end-line="30" selection-end-column="92" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/domain/model/Performer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1533">
-          <caret line="88" column="18" lean-forward="false" selection-start-line="88" selection-start-column="18" selection-end-line="88" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/softeng325-concert-common/src/main/java/nz/ac/auckland/concert/common/types/SeatNumber.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="16" column="38" lean-forward="true" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/src.zip!/java/time/LocalDateTime.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="861">
@@ -727,24 +895,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/softeng325-concert-client/src/main/java/nz/ac/auckland/concert/client/service/ConcertService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="21" column="77" lean-forward="false" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/domain/model/CreditCard.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
           <caret line="27" column="23" lean-forward="false" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/softeng325-concert-client/src/main/java/nz/ac/auckland/concert/client/service/DefaultService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="11" column="5" lean-forward="false" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -766,13 +920,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
           <caret line="29" column="14" lean-forward="false" selection-start-line="29" selection-start-column="14" selection-end-line="29" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/services/ConcertApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="6" column="4" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -818,20 +965,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/softeng325-concert-client/src/test/java/nz/ac/auckland/concert/client/service/ConcertServiceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7938">
-          <caret line="416" column="23" lean-forward="true" selection-start-line="416" selection-start-column="23" selection-end-line="416" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/services/PersistenceManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/softeng325-concert-common/src/main/java/nz/ac/auckland/concert/common/dto/BookingDTO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-984">
@@ -848,57 +981,214 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/domain/model/Performer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1533">
+        <state relative-caret-position="1241">
           <caret line="88" column="18" lean-forward="false" selection-start-line="88" selection-start-column="18" selection-end-line="88" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://9dfdfda6-80c9-42a2-86b8-06ca784361a1/database/TEST/schema/PUBLIC/table/BANKACCOUNT" />
+    <entry file="file://$PROJECT_DIR$/softeng325-concert-client/softeng325-concert-client.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-85">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://9dfdfda6-80c9-42a2-86b8-06ca784361a1/database/TEST/schema/PUBLIC/table/USERS" />
+    <entry file="das://9dfdfda6-80c9-42a2-86b8-06ca784361a1/database/TEST/schema/PUBLIC/table/USER_ONETOONE" />
+    <entry file="das://9dfdfda6-80c9-42a2-86b8-06ca784361a1/database/TEST/schema/PUBLIC/table/SHIPMENT_ONETOONE" />
+    <entry file="das://9dfdfda6-80c9-42a2-86b8-06ca784361a1/database/TEST/schema/PUBLIC/table/PERFORMER" />
+    <entry file="das://9dfdfda6-80c9-42a2-86b8-06ca784361a1/database/TEST/schema/PUBLIC/table/ITEM_SHIPMENT" />
+    <entry file="das://9dfdfda6-80c9-42a2-86b8-06ca784361a1/database/TEST/schema/PUBLIC/table/ITEM_ONETOONE" />
+    <entry file="das://9dfdfda6-80c9-42a2-86b8-06ca784361a1/database/TEST/schema/PUBLIC/table/ITEM_ONETOMANY" />
+    <entry file="das://9dfdfda6-80c9-42a2-86b8-06ca784361a1/database/TEST/schema/PUBLIC/table/ITEM_BUYER" />
+    <entry file="das://9dfdfda6-80c9-42a2-86b8-06ca784361a1/database/TEST/schema/PUBLIC/table/ITEM" />
+    <entry file="das://9dfdfda6-80c9-42a2-86b8-06ca784361a1/database/TEST/schema/PUBLIC/table/IMAGE" />
+    <entry file="das://9dfdfda6-80c9-42a2-86b8-06ca784361a1/database/TEST/schema/PUBLIC/table/CREDITCARD" />
+    <entry file="das://9dfdfda6-80c9-42a2-86b8-06ca784361a1/database/TEST/schema/PUBLIC/table/CONCERT" />
+    <entry file="das://9dfdfda6-80c9-42a2-86b8-06ca784361a1/database/TEST/schema/PUBLIC/table/CATEGORY_ITEM" />
+    <entry file="das://9dfdfda6-80c9-42a2-86b8-06ca784361a1/database/TEST/schema/PUBLIC/table/CATEGORY" />
+    <entry file="das://9dfdfda6-80c9-42a2-86b8-06ca784361a1/database/TEST/schema/PUBLIC/table/BID_ONETOMANY" />
+    <entry file="das://9dfdfda6-80c9-42a2-86b8-06ca784361a1/database/TEST/schema/PUBLIC/table/BILLINGDETAILS" />
+    <entry file="das://aed84ebe-6743-4ac1-b0f7-9382f5fc1a89/database/TEST/schema/PUBLIC/table/BID" />
+    <entry file="file://$PROJECT_DIR$/softeng325-concert-service/src/main/resources/META-INF/persistence.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://aed84ebe-6743-4ac1-b0f7-9382f5fc1a89/database/TEST/schema/PUBLIC/table/CREDITCARD" />
+    <entry file="das://aed84ebe-6743-4ac1-b0f7-9382f5fc1a89/database/TEST/schema/PUBLIC/table/ADDRESS_ONETOONE" />
+    <entry file="das://aed84ebe-6743-4ac1-b0f7-9382f5fc1a89/database/TEST/schema/PUBLIC/table/BANKACCOUNT" />
+    <entry file="das://aed84ebe-6743-4ac1-b0f7-9382f5fc1a89/database/TEST/schema/PUBLIC/table/CONCERT" />
+    <entry file="file://$PROJECT_DIR$/softeng325-concert-client/src/test/java/nz/ac/auckland/concert/client/service/ConcertServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1302">
+          <caret line="100" column="0" lean-forward="false" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/softeng325-concert-service/src/main/resources/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/services/ConcertApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <element signature="e#391#392#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/services/PersistenceManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="588">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/softeng325-concert-client/src/main/java/nz/ac/auckland/concert/client/service/ConcertService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-126">
+          <caret line="21" column="77" lean-forward="false" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="77" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/softeng325-concert-common/src/main/java/nz/ac/auckland/concert/common/dto/ConcertDTO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="80" column="25" lean-forward="false" selection-start-line="80" selection-start-column="25" selection-end-line="80" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="210">
+          <caret line="48" column="11" lean-forward="false" selection-start-line="48" selection-start-column="11" selection-end-line="48" selection-end-column="11" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/domain/model/Concert.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1470">
-          <caret line="93" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+        <state relative-caret-position="315">
+          <caret line="66" column="19" lean-forward="false" selection-start-line="66" selection-start-column="19" selection-end-line="66" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/softeng325-concert-service/src/main/resources/META-INF/persistence.xml">
+    <entry file="file://$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/services/mapper/ConcertMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="30" column="92" lean-forward="false" selection-start-line="30" selection-start-column="63" selection-end-line="30" selection-end-column="92" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://9dfdfda6-80c9-42a2-86b8-06ca784361a1/database/TEST/schema/PUBLIC/table/BANKACCOUNT" />
-    <entry file="das://9dfdfda6-80c9-42a2-86b8-06ca784361a1/database/TEST/schema/PUBLIC/table/CONCERT" />
-    <entry file="das://9dfdfda6-80c9-42a2-86b8-06ca784361a1/database/TEST/schema/PUBLIC/table/USERS" />
-    <entry file="file://$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/services/ConcertResource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        <state relative-caret-position="252">
+          <caret line="12" column="35" lean-forward="false" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/services/ConcertResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1239">
+          <caret line="76" column="17" lean-forward="true" selection-start-line="76" selection-start-column="17" selection-end-line="76" selection-end-column="17" />
+          <folding>
+            <element signature="e#934#935#0" expanded="true" />
+            <element signature="e#999#1000#0" expanded="true" />
+            <element signature="e#3109#3126#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/softeng325-concert-client/src/main/java/nz/ac/auckland/concert/client/service/DefaultService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="9" column="4" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>
   </component>
   <component name="masterDetails">
     <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>softeng325-concert-common</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
       <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: antlr:antlr:2.7.7</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

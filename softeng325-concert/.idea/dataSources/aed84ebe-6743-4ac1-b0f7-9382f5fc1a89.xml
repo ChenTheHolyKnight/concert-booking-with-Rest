@@ -1,0 +1,656 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="test">
+  <database-model serializer="dbm" rdbms="H2" format-version="4.11">
+    <root id="1">
+      <ServerVersion>1.4.196</ServerVersion>
+    </root>
+    <database id="2" parent="1" name="TEST">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </database>
+    <schema id="3" parent="2" name="INFORMATION_SCHEMA"/>
+    <schema id="4" parent="2" name="PUBLIC">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <table id="5" parent="4" name="ADDRESS_ONETOONE"/>
+    <table id="6" parent="4" name="BID"/>
+    <table id="7" parent="4" name="BID_ONETOMANY"/>
+    <table id="8" parent="4" name="BILLINGDETAILS"/>
+    <table id="9" parent="4" name="CATEGORY"/>
+    <table id="10" parent="4" name="CATEGORY_ITEM"/>
+    <table id="11" parent="4" name="CONCERT"/>
+    <table id="12" parent="4" name="CREDITCARD"/>
+    <table id="13" parent="4" name="IMAGE"/>
+    <table id="14" parent="4" name="ITEM"/>
+    <table id="15" parent="4" name="ITEM_BUYER"/>
+    <table id="16" parent="4" name="ITEM_ONETOMANY"/>
+    <table id="17" parent="4" name="ITEM_ONETOONE"/>
+    <table id="18" parent="4" name="ITEM_SHIPMENT"/>
+    <table id="19" parent="4" name="PERFORMER"/>
+    <table id="20" parent="4" name="SHIPMENT_ONETOONE"/>
+    <table id="21" parent="4" name="USERS"/>
+    <table id="22" parent="4" name="USER_ONETOONE"/>
+    <column id="23" parent="5" name="_ID">
+      <Position>1</Position>
+      <DataType>BIGINT(19)|-5s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="24" parent="5" name="CITY">
+      <Position>2</Position>
+      <DataType>VARCHAR(30)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="25" parent="5" name="STREET">
+      <Position>3</Position>
+      <DataType>VARCHAR(50)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="26" parent="5" name="ZIP_CODE">
+      <Position>4</Position>
+      <DataType>VARCHAR(10)|12s</DataType>
+    </column>
+    <index id="27" parent="5" name="PRIMARY_KEY_C">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="28" parent="5" name="CONSTRAINT_C">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="29" parent="6" name="_ID">
+      <Position>1</Position>
+      <DataType>BIGINT(19)|-5s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="30" parent="6" name="_AMOUNT">
+      <Position>2</Position>
+      <DataType>DECIMAL(19,2)|3s</DataType>
+    </column>
+    <column id="31" parent="6" name="ITEM_ID">
+      <Position>3</Position>
+      <DataType>BIGINT(19)|-5s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="32" parent="6" name="PRIMARY_KEY_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="33" parent="6" name="FK884GYGUVO3JCBCA0V78W95L3K_INDEX_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ITEM_ID</ColNames>
+    </index>
+    <key id="34" parent="6" name="CONSTRAINT_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="35" parent="6" name="FK884GYGUVO3JCBCA0V78W95L3K">
+      <ColNames>ITEM_ID</ColNames>
+      <RefSchemaName>PUBLIC</RefSchemaName>
+      <RefTableName>ITEM</RefTableName>
+      <RefKeyName>CONSTRAINT_22</RefKeyName>
+      <RefColNames>_ID</RefColNames>
+    </foreign-key>
+    <column id="36" parent="7" name="ID">
+      <Position>1</Position>
+      <DataType>BIGINT(19)|-5s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="37" parent="7" name="AMOUNT">
+      <Position>2</Position>
+      <DataType>DECIMAL(19,2)|3s</DataType>
+    </column>
+    <column id="38" parent="7" name="ITEM_ID">
+      <Position>3</Position>
+      <DataType>BIGINT(19)|-5s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="39" parent="7" name="PRIMARY_KEY_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="40" parent="7" name="FKDYLT0K7P1M1Y9VIKTTUJYFNFC_INDEX_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ITEM_ID</ColNames>
+    </index>
+    <key id="41" parent="7" name="CONSTRAINT_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="42" parent="7" name="FKDYLT0K7P1M1Y9VIKTTUJYFNFC">
+      <ColNames>ITEM_ID</ColNames>
+      <RefSchemaName>PUBLIC</RefSchemaName>
+      <RefTableName>ITEM_ONETOMANY</RefTableName>
+      <RefKeyName>CONSTRAINT_6</RefKeyName>
+      <RefColNames>ID</RefColNames>
+    </foreign-key>
+    <column id="43" parent="8" name="_ID">
+      <Position>1</Position>
+      <DataType>BIGINT(19)|-5s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="44" parent="8" name="_OWNER">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="45" parent="8" name="PRIMARY_KEY_E8">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="46" parent="8" name="CONSTRAINT_E8">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="47" parent="9" name="_ID">
+      <Position>1</Position>
+      <DataType>BIGINT(19)|-5s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="48" parent="9" name="_NAME">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <index id="49" parent="9" name="PRIMARY_KEY_3">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="50" parent="9" name="CONSTRAINT_3">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="51" parent="10" name="CATEGORY_ID">
+      <Position>1</Position>
+      <DataType>BIGINT(19)|-5s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="52" parent="10" name="ITEM_ID">
+      <Position>2</Position>
+      <DataType>BIGINT(19)|-5s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="53" parent="10" name="PRIMARY_KEY_CF">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>CATEGORY_ID
+ITEM_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="54" parent="10" name="FKJIP0OR3VEMIXCCL6VX0KLUJ03_INDEX_C">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>CATEGORY_ID</ColNames>
+    </index>
+    <index id="55" parent="10" name="FKF1UERPNMN49VL1SPBBPLGXAUN_INDEX_C">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ITEM_ID</ColNames>
+    </index>
+    <key id="56" parent="10" name="CONSTRAINT_CF">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>CATEGORY_ID
+ITEM_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="57" parent="10" name="FKJIP0OR3VEMIXCCL6VX0KLUJ03">
+      <ColNames>CATEGORY_ID</ColNames>
+      <RefSchemaName>PUBLIC</RefSchemaName>
+      <RefTableName>CATEGORY</RefTableName>
+      <RefKeyName>CONSTRAINT_3</RefKeyName>
+      <RefColNames>_ID</RefColNames>
+    </foreign-key>
+    <foreign-key id="58" parent="10" name="FKF1UERPNMN49VL1SPBBPLGXAUN">
+      <ColNames>ITEM_ID</ColNames>
+      <RefSchemaName>PUBLIC</RefSchemaName>
+      <RefTableName>ITEM</RefTableName>
+      <RefKeyName>CONSTRAINT_22</RefKeyName>
+      <RefColNames>_ID</RefColNames>
+    </foreign-key>
+    <column id="59" parent="11" name="ID">
+      <Position>1</Position>
+      <DataType>BIGINT(19)|-5s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="60" parent="11" name="TITLE">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <column id="61" parent="11" name="DATE">
+      <Position>3</Position>
+      <DataType>TIMESTAMP(23,10)|93s</DataType>
+    </column>
+    <column id="62" parent="11" name="FK_PERFORMER_ID">
+      <Position>4</Position>
+      <DataType>BIGINT(19)|-5s</DataType>
+    </column>
+    <index id="63" parent="11" name="PRIMARY_KEY_63">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="64" parent="11" name="CONSTRAINT_INDEX_6">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>FK_PERFORMER_ID</ColNames>
+    </index>
+    <key id="65" parent="11" name="CONSTRAINT_63">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="66" parent="11" name="CONSTRAINT_637">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>FK_PERFORMER_ID</ColNames>
+      <RefSchemaName>PUBLIC</RefSchemaName>
+      <RefTableName>PERFORMER</RefTableName>
+      <RefKeyName>CONSTRAINT_C2</RefKeyName>
+      <RefColNames>ID</RefColNames>
+    </foreign-key>
+    <column id="67" parent="12" name="_CARDNUMBER">
+      <Position>1</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <column id="68" parent="12" name="_EXPIRYDATE">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <column id="69" parent="12" name="_ID">
+      <Position>3</Position>
+      <DataType>BIGINT(19)|-5s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="70" parent="12" name="PRIMARY_KEY_F">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="71" parent="12" name="CONSTRAINT_F">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="72" parent="12" name="FK61JXT63BWF0A8PWH695394A4T">
+      <ColNames>_ID</ColNames>
+      <RefSchemaName>PUBLIC</RefSchemaName>
+      <RefTableName>BILLINGDETAILS</RefTableName>
+      <RefKeyName>CONSTRAINT_E8</RefKeyName>
+      <RefColNames>_ID</RefColNames>
+    </foreign-key>
+    <column id="73" parent="13" name="ITEM__ID">
+      <Position>1</Position>
+      <DataType>BIGINT(19)|-5s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="74" parent="13" name="_FILENAME">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="75" parent="13" name="_SIZEX">
+      <Position>3</Position>
+      <DataType>INTEGER(10)|4s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="76" parent="13" name="_SIZEY">
+      <Position>4</Position>
+      <DataType>INTEGER(10)|4s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="77" parent="13" name="_TITLE">
+      <Position>5</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="78" parent="13" name="PRIMARY_KEY_4">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ITEM__ID
+_FILENAME
+_SIZEX
+_SIZEY
+_TITLE</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="79" parent="13" name="FK47S1M7USRJRR6R2U2AMTLRYUH_INDEX_4">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ITEM__ID</ColNames>
+    </index>
+    <key id="80" parent="13" name="CONSTRAINT_4">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ITEM__ID
+_FILENAME
+_SIZEX
+_SIZEY
+_TITLE</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="81" parent="13" name="FK47S1M7USRJRR6R2U2AMTLRYUH">
+      <ColNames>ITEM__ID</ColNames>
+      <RefSchemaName>PUBLIC</RefSchemaName>
+      <RefTableName>ITEM</RefTableName>
+      <RefKeyName>CONSTRAINT_22</RefKeyName>
+      <RefColNames>_ID</RefColNames>
+    </foreign-key>
+    <column id="82" parent="14" name="_ID">
+      <Position>1</Position>
+      <DataType>BIGINT(19)|-5s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="83" parent="14" name="_NAME">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <index id="84" parent="14" name="PRIMARY_KEY_22">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="85" parent="14" name="CONSTRAINT_22">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="86" parent="15" name="_BUYER__ID">
+      <Position>1</Position>
+      <DataType>BIGINT(19)|-5s</DataType>
+    </column>
+    <column id="87" parent="15" name="ITEM_ID">
+      <Position>2</Position>
+      <DataType>BIGINT(19)|-5s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="88" parent="15" name="PRIMARY_KEY_D">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ITEM_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="89" parent="15" name="FKCKV0NIF7HG371VHWPGHBYYVJY_INDEX_D">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>_BUYER__ID</ColNames>
+    </index>
+    <key id="90" parent="15" name="CONSTRAINT_D">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ITEM_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="91" parent="15" name="FKCKV0NIF7HG371VHWPGHBYYVJY">
+      <ColNames>_BUYER__ID</ColNames>
+      <RefSchemaName>PUBLIC</RefSchemaName>
+      <RefTableName>USERS</RefTableName>
+      <RefKeyName>CONSTRAINT_4D</RefKeyName>
+      <RefColNames>_ID</RefColNames>
+    </foreign-key>
+    <foreign-key id="92" parent="15" name="FKQ7F4KGUI70RUUV946J45NT74R">
+      <ColNames>ITEM_ID</ColNames>
+      <RefSchemaName>PUBLIC</RefSchemaName>
+      <RefTableName>ITEM</RefTableName>
+      <RefKeyName>CONSTRAINT_22</RefKeyName>
+      <RefColNames>_ID</RefColNames>
+    </foreign-key>
+    <column id="93" parent="16" name="ID">
+      <Position>1</Position>
+      <DataType>BIGINT(19)|-5s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="94" parent="16" name="_NAME">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <index id="95" parent="16" name="PRIMARY_KEY_6">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="96" parent="16" name="CONSTRAINT_6">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="97" parent="17" name="_ID">
+      <Position>1</Position>
+      <DataType>BIGINT(19)|-5s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="98" parent="17" name="_NAME">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <index id="99" parent="17" name="PRIMARY_KEY_D1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="100" parent="17" name="CONSTRAINT_D1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="101" parent="18" name="ITEM_ID">
+      <Position>1</Position>
+      <DataType>BIGINT(19)|-5s</DataType>
+    </column>
+    <column id="102" parent="18" name="SHIPMENT_ID">
+      <Position>2</Position>
+      <DataType>BIGINT(19)|-5s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="103" parent="18" name="UK_EW9CIRVGSIAOHXF5NNVFBOS2V_INDEX_3">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ITEM_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="104" parent="18" name="PRIMARY_KEY_3A">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>SHIPMENT_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="105" parent="18" name="CONSTRAINT_3A">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>SHIPMENT_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="106" parent="18" name="UK_EW9CIRVGSIAOHXF5NNVFBOS2V_INDEX_3">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ITEM_ID</ColNames>
+    </key>
+    <foreign-key id="107" parent="18" name="FKP4FNWJG4ES5KWV4JVUJPIC82U">
+      <ColNames>ITEM_ID</ColNames>
+      <RefSchemaName>PUBLIC</RefSchemaName>
+      <RefTableName>ITEM_ONETOONE</RefTableName>
+      <RefKeyName>CONSTRAINT_D1</RefKeyName>
+      <RefColNames>_ID</RefColNames>
+    </foreign-key>
+    <foreign-key id="108" parent="18" name="FKHSIYQI4UK4QHI7CMGEJXH7KA">
+      <ColNames>SHIPMENT_ID</ColNames>
+      <RefSchemaName>PUBLIC</RefSchemaName>
+      <RefTableName>SHIPMENT_ONETOONE</RefTableName>
+      <RefKeyName>CONSTRAINT_CF9</RefKeyName>
+      <RefColNames>_ID</RefColNames>
+    </foreign-key>
+    <column id="109" parent="19" name="ID">
+      <Position>1</Position>
+      <DataType>BIGINT(19)|-5s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="110" parent="19" name="NAME">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <column id="111" parent="19" name="S3IMAGE">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <column id="112" parent="19" name="GENRE">
+      <Position>4</Position>
+      <DataType>VARCHAR(30)|12s</DataType>
+    </column>
+    <index id="113" parent="19" name="PRIMARY_KEY_C2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="114" parent="19" name="CONSTRAINT_C2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="115" parent="20" name="_ID">
+      <Position>1</Position>
+      <DataType>BIGINT(19)|-5s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="116" parent="20" name="PRIMARY_KEY_CF9">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="117" parent="20" name="CONSTRAINT_CF9">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="118" parent="21" name="_ID">
+      <Position>1</Position>
+      <DataType>BIGINT(19)|-5s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="119" parent="21" name="BILLING_CITY">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="120" parent="21" name="BILLING_STREET">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="121" parent="21" name="BILLING_ZIP_CODE">
+      <Position>4</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <column id="122" parent="21" name="FIRSTNAME">
+      <Position>5</Position>
+      <DataType>VARCHAR(30)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="123" parent="21" name="CITY">
+      <Position>6</Position>
+      <DataType>VARCHAR(30)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="124" parent="21" name="STREET">
+      <Position>7</Position>
+      <DataType>VARCHAR(50)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="125" parent="21" name="ZIP_CODE">
+      <Position>8</Position>
+      <DataType>VARCHAR(10)|12s</DataType>
+    </column>
+    <column id="126" parent="21" name="LASTNAME">
+      <Position>9</Position>
+      <DataType>VARCHAR(30)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="127" parent="21" name="SHIPPING_CITY">
+      <Position>10</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="128" parent="21" name="SHIPPING_STREET">
+      <Position>11</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="129" parent="21" name="SHIPPING_ZIP_CODE">
+      <Position>12</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <column id="130" parent="21" name="USERNAME">
+      <Position>13</Position>
+      <DataType>VARCHAR(30)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="131" parent="21" name="_DEFAULTBILLING__ID">
+      <Position>14</Position>
+      <DataType>BIGINT(19)|-5s</DataType>
+    </column>
+    <index id="132" parent="21" name="PRIMARY_KEY_4D">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="133" parent="21" name="FK87KON5E8YQ7JAAQ3X329QM5HG_INDEX_4">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>_DEFAULTBILLING__ID</ColNames>
+    </index>
+    <key id="134" parent="21" name="CONSTRAINT_4D">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="135" parent="21" name="FK87KON5E8YQ7JAAQ3X329QM5HG">
+      <ColNames>_DEFAULTBILLING__ID</ColNames>
+      <RefSchemaName>PUBLIC</RefSchemaName>
+      <RefTableName>BILLINGDETAILS</RefTableName>
+      <RefKeyName>CONSTRAINT_E8</RefKeyName>
+      <RefColNames>_ID</RefColNames>
+    </foreign-key>
+    <column id="136" parent="22" name="_ID">
+      <Position>1</Position>
+      <DataType>BIGINT(19)|-5s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="137" parent="22" name="FIRSTNAME">
+      <Position>2</Position>
+      <DataType>VARCHAR(30)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="138" parent="22" name="LASTNAME">
+      <Position>3</Position>
+      <DataType>VARCHAR(30)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="139" parent="22" name="USERNAME">
+      <Position>4</Position>
+      <DataType>VARCHAR(30)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="140" parent="22" name="_SHIPPINGADDRESS__ID">
+      <Position>5</Position>
+      <DataType>BIGINT(19)|-5s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="141" parent="22" name="PRIMARY_KEY_B">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="142" parent="22" name="UK_OHC9X43TN3CDOXCDGIUJ06W14_INDEX_B">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>_SHIPPINGADDRESS__ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="143" parent="22" name="CONSTRAINT_B">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="144" parent="22" name="UK_OHC9X43TN3CDOXCDGIUJ06W14_INDEX_B">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>_SHIPPINGADDRESS__ID</ColNames>
+    </key>
+    <foreign-key id="145" parent="22" name="FKLA77445HBOOLB7WD4XYS1WFBH">
+      <ColNames>_SHIPPINGADDRESS__ID</ColNames>
+      <RefSchemaName>PUBLIC</RefSchemaName>
+      <RefTableName>ADDRESS_ONETOONE</RefTableName>
+      <RefKeyName>CONSTRAINT_C</RefKeyName>
+      <RefColNames>_ID</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>
