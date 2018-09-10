@@ -2,13 +2,21 @@ package nz.ac.auckland.concert.client.service;
 
 import nz.ac.auckland.concert.common.dto.*;
 
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+
+import javax.ws.rs.client.Invocation.Builder;
+import javax.ws.rs.core.GenericType;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.awt.*;
 import java.util.Set;
 
 public class DefaultService implements ConcertService{
 
-    
-
+    Client client;
+    private final static String WEB_SERVICE_URI="http://localhost:10000/services";
+    private final static String CONCERTS_URI="/concerts";
 
 
 
@@ -16,7 +24,18 @@ public class DefaultService implements ConcertService{
 
     @Override
     public Set<ConcertDTO> getConcerts() throws ServiceException {
-        return null;
+        Set<ConcertDTO> concertDTOS = null;
+        try{
+            client= ClientBuilder.newClient();
+            Builder builder=client.target(WEB_SERVICE_URI + CONCERTS_URI).request().accept(MediaType.APPLICATION_XML);
+            Response response=builder.get();
+            if(response.getStatus()==Response.Status.OK.getStatusCode()){
+                concertDTOS=response.readEntity(new GenericType<Set<ConcertDTO>>(){});
+            }
+        }catch (Exception e){
+
+        }
+        return concertDTOS;
     }
 
     @Override
