@@ -20,11 +20,12 @@ public class Concert {
     private Long _id;
     @Column(nullable = false,name = "Title")
     private String _title;
+    @ElementCollection
     private Set<LocalDateTime> _dates;
     @ElementCollection
     private Map<PriceBand, BigDecimal> _tariff;
 
-
+    @ManyToMany
     private Set<Performer> _performers;
 
     public Concert(){

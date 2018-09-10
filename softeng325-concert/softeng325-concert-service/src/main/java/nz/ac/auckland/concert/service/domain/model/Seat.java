@@ -18,6 +18,9 @@ import javax.persistence.*;
  */
 @Entity
 public class Seat {
+	@Id
+	@GeneratedValue
+	private Long _id;
 	@Enumerated
 	private SeatRow _row;
 	@Convert(converter = SeatNumberConverter.class)
@@ -36,6 +39,10 @@ public class Seat {
 	
 	public SeatNumber getNumber() {
 		return _number;
+	}
+
+	public Long getId(){
+		return _id;
 	}
 	
 	@Override

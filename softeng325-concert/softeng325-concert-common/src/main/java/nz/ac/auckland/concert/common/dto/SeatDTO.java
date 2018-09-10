@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * _number the number of the seat.
  *
  */
-@XmlRootElement(name = "seat")
+@XmlRootElement(name = "Seat")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class SeatDTO {
 	@XmlElement(name = "row")

@@ -85,7 +85,6 @@ public class ConcertResource {
         entityManager.getTransaction().commit();
 
 
-
         if(!concertDTOS.isEmpty()){
             GenericEntity<Set<ConcertDTO>> entity = new GenericEntity<Set<ConcertDTO>>(concertDTOS) {};
             return Response.ok(entity).build();

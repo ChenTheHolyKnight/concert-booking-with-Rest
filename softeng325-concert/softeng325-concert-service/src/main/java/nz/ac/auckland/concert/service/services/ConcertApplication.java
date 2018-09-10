@@ -7,13 +7,19 @@ import java.util.Set;
 @ApplicationPath("/services")
 public class ConcertApplication extends Application{
     private Set<Object> singleton =new HashSet<>();
-
+    private Set<Class<?>> classes=new HashSet<>();
     public ConcertApplication() {
-        singleton.add(new ConcertResource());
+        classes.add(ConcertResource.class);
+        singleton.add(PersistenceManager.instance());
     }
 
     @Override
     public Set<Object> getSingletons(){
         return singleton;
+    }
+
+    @Override
+    public Set<Class<?>> getClasses(){
+        return classes;
     }
 }
