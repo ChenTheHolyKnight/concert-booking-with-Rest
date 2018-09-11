@@ -10,6 +10,7 @@ public class ConcertApplication extends Application{
     private Set<Class<?>> classes=new HashSet<>();
     public ConcertApplication() {
         classes.add(ConcertResource.class);
+        classes.add(PerformerResource.class);
         singleton.add(PersistenceManager.instance());
     }
 

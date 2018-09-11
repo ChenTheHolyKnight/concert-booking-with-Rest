@@ -1,6 +1,7 @@
 package nz.ac.auckland.concert.client.service;
 
 import nz.ac.auckland.concert.common.dto.*;
+import nz.ac.auckland.concert.service.domain.model.Performer;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -15,8 +16,9 @@ import java.util.Set;
 public class DefaultService implements ConcertService{
 
     Client client;
-    private final static String WEB_SERVICE_URI="http://localhost:10000/services/concert";
-    private final static String CONCERTS_URI="/concerts";
+    private final static String WEB_SERVICE_URI="http://localhost:10000/services";
+    private final static String CONCERTS_URI="/concert/concerts";
+    private final static String PERFORMERS_URI="/performer/performers";
 
 
 
@@ -42,7 +44,20 @@ public class DefaultService implements ConcertService{
 
     @Override
     public Set<PerformerDTO> getPerformers() throws ServiceException {
-        return null;
+        Set<PerformerDTO> performerDTOS = null;
+
+        try{
+            client= ClientBuilder.newClient();
+            Builder builder=client.target(WEB_SERVICE_URI + PERFORMERS_URI).request().accept(MediaType.APPLICATION_XML);
+            Response response=builder.get();
+            System.out.println("Rob"+response.getStatus());
+            if(response.getStatus()==Response.Status.OK.getStatusCode()){
+                performerDTOS=response.readEntity(new GenericType<Set<PerformerDTO>>(){});
+            }
+        }catch (Exception e){
+            System.out.println("not working");
+        }
+        return performerDTOS;
     }
 
     @Override
