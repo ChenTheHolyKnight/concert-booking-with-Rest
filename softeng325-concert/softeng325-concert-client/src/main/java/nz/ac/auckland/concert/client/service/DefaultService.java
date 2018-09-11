@@ -15,7 +15,7 @@ import java.util.Set;
 public class DefaultService implements ConcertService{
 
     Client client;
-    private final static String WEB_SERVICE_URI="http://localhost:10000/services";
+    private final static String WEB_SERVICE_URI="http://localhost:10000/services/concert";
     private final static String CONCERTS_URI="/concerts";
 
 
@@ -25,15 +25,17 @@ public class DefaultService implements ConcertService{
     @Override
     public Set<ConcertDTO> getConcerts() throws ServiceException {
         Set<ConcertDTO> concertDTOS = null;
+
         try{
             client= ClientBuilder.newClient();
             Builder builder=client.target(WEB_SERVICE_URI + CONCERTS_URI).request().accept(MediaType.APPLICATION_XML);
             Response response=builder.get();
+            System.out.println("Rob"+response.getStatus());
             if(response.getStatus()==Response.Status.OK.getStatusCode()){
                 concertDTOS=response.readEntity(new GenericType<Set<ConcertDTO>>(){});
             }
         }catch (Exception e){
-
+            System.out.println("not working");
         }
         return concertDTOS;
     }

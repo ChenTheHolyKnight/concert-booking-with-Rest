@@ -18,6 +18,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicLong;
+import java.util.stream.Collectors;
 
 
 @Path("/concert")
@@ -74,16 +75,17 @@ public class ConcertResource {
 
 
     @GET
-    @Path("{id}")
+    @Path("/concerts")
+    @Produces({MediaType.APPLICATION_XML})
     @Consumes({MediaType.APPLICATION_XML})
-    public Response retrieveAllConcert(@PathParam("id") long id) {
+    public Response retrieveAllConcert() {
         EntityManager entityManager=_persistenceManager.createEntityManager();
         entityManager.getTransaction().begin();
-        List<Concert> concerts=entityManager.createQuery("select c from CONCERT c",Concert.class).getResultList();
+        List<Concert> concerts=entityManager.createQuery("SELECT c FROM Concert c",Concert.class).getResultList();
         Set<ConcertDTO> concertDTOS=new HashSet<>();
         concerts.forEach(concert -> concertDTOS.add(ConcertMapper.toDTO(concert)));
         entityManager.getTransaction().commit();
-
+        System.out.println("Rob + Penis "+concerts.size());
 
         if(!concertDTOS.isEmpty()){
             GenericEntity<Set<ConcertDTO>> entity = new GenericEntity<Set<ConcertDTO>>(concertDTOS) {};

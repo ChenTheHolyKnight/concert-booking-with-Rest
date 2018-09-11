@@ -13,19 +13,40 @@ import java.util.Map;
 import java.util.Set;
 
 @Entity
+@Table(name = "CONCERTS")
 public class Concert {
 
     @Id
     @GeneratedValue
     private Long _id;
+
     @Column(nullable = false,name = "Title")
     private String _title;
+
+
     @ElementCollection
+    @CollectionTable(
+            name = "CONCERT_DATES",
+            joinColumns = @JoinColumn(name = "CONCERT_ID", nullable = false)
+    )
+    @Column(nullable = false)
     private Set<LocalDateTime> _dates;
+
     @ElementCollection
+    @MapKeyColumn(name = "PRICE_BAND", table = "CONCERT_TARIFS")
+    @MapKeyEnumerated(EnumType.STRING)
+    @CollectionTable(
+            name = "CONCERT_TARIFS",
+            joinColumns = @JoinColumn(name = "CONCERT_ID", nullable = false)
+    )
+    @Column(nullable = false)
     private Map<PriceBand, BigDecimal> _tariff;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "CONCERT_PERFORMER",
+            joinColumns = @JoinColumn(name = "CONCERT_ID", nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "PERFORMER_ID", nullable = false)
+    )
     private Set<Performer> _performers;
 
     public Concert(){

@@ -22,15 +22,17 @@ import java.util.Set;
  *             
  */
 @Entity
+@Table(name = "PERFORMERS")
 public class Performer {
 	@Id
 	@GeneratedValue
 	private Long _id;
-	@Column(nullable = false,name = "Genre")
+	@Enumerated(EnumType.STRING)
+	@Column(nullable = false)
 	private Genre _genre;
-	@Column(nullable = false,name = "Image name")
+	@Column(nullable = false)
 	private String _imageName;
-	@Column(nullable = false,name = "Name of performer")
+	@Column(nullable = false)
 	private String _name;
 
 
