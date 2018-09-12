@@ -19,7 +19,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-@Path("/performer")
+import static nz.ac.auckland.concert.common.Config.ALL_PERFORMERS;
+import static nz.ac.auckland.concert.common.Config.PERFORMERS_URI;
+
+@Path(PERFORMERS_URI)
 public class PerformerResource extends ServiceResource{
 
     private static Logger _logger = LoggerFactory
@@ -34,7 +37,7 @@ public class PerformerResource extends ServiceResource{
 
 
     @GET
-    @Path("/performers")
+    @Path(ALL_PERFORMERS)
     @Produces({MediaType.APPLICATION_XML})
     @Consumes({MediaType.APPLICATION_XML})
     public Response retrieveAllConcert() {

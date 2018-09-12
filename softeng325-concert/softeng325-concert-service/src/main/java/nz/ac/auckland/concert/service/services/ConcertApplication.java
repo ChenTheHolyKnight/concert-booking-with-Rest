@@ -2,6 +2,8 @@ package nz.ac.auckland.concert.service.services;
 
 import nz.ac.auckland.concert.service.services.resources.ConcertResource;
 import nz.ac.auckland.concert.service.services.resources.PerformerResource;
+import nz.ac.auckland.concert.service.services.resources.UserResource;
+import org.jboss.resteasy.plugins.providers.jaxb.JAXBXmlTypeProvider;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
@@ -14,6 +16,8 @@ public class ConcertApplication extends Application{
     public ConcertApplication() {
         classes.add(ConcertResource.class);
         classes.add(PerformerResource.class);
+        classes.add(UserResource.class);
+        //classes.add(JAXBXmlTypeProvider.class);
         singleton.add(PersistenceManager.instance());
     }
 

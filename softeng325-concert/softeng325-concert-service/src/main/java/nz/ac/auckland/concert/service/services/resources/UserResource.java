@@ -2,10 +2,11 @@ package nz.ac.auckland.concert.service.services.resources;
 
 import nz.ac.auckland.concert.common.dto.UserDTO;
 import nz.ac.auckland.concert.common.message.Messages;
-import nz.ac.auckland.concert.service.domain.model.Concert;
 import nz.ac.auckland.concert.service.domain.model.User;
 import nz.ac.auckland.concert.service.services.PersistenceManager;
 import nz.ac.auckland.concert.service.services.mapper.UserMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.persistence.EntityManager;
 import javax.ws.rs.*;
@@ -14,20 +15,27 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.NewCookie;
 import javax.ws.rs.core.Response;
 import java.net.URI;
-import java.util.ArrayList;
 import java.util.List;
 
-@Path("/user")
+import static nz.ac.auckland.concert.common.Config.CREATE_USER;
+import static nz.ac.auckland.concert.common.Config.USER_URI;
+
+@Path(USER_URI)
 public class UserResource extends ServiceResource {
-    private final static String USER_URI="/create";
+    //private final static String USER_URI="/create";
     private PersistenceManager _persistenceManager;
     EntityManager _entityManager;
+
+
+    private static Logger _logger = LoggerFactory
+            .getLogger(ConcertResource.class);
+
     public UserResource(){
         _persistenceManager=PersistenceManager.instance();
         _entityManager=_persistenceManager.createEntityManager();
     }
     @POST
-    @Path("/create")
+    @Path(CREATE_USER)
     @Produces({MediaType.APPLICATION_XML})
     @Consumes({MediaType.APPLICATION_XML})
     public Response createUser(UserDTO userDTO, @CookieParam(COOKIE) Cookie cookie) {
@@ -44,7 +52,7 @@ public class UserResource extends ServiceResource {
 
         NewCookie newCookie=makeCookie(cookie);
 
-        return Response.created(URI.create(USER_URI+"/"+user.getUsername())).entity(user).cookie(newCookie).build();
+        return Response.created(URI.create(CREATE_USER+"/"+user.getUsername())).entity(userDTO).cookie(newCookie).build();
 
     }
 

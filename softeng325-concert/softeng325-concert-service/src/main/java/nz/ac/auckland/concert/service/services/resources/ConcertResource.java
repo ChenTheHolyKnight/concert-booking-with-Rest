@@ -18,8 +18,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import static nz.ac.auckland.concert.common.Config.ALL_CONCERTS;
+import static nz.ac.auckland.concert.common.Config.CONCERTS_URI;
 
-@Path("/concert")
+
+@Path(CONCERTS_URI)
 public class ConcertResource extends ServiceResource{
     private static Logger _logger = LoggerFactory
             .getLogger(ConcertResource.class);
@@ -33,7 +36,7 @@ public class ConcertResource extends ServiceResource{
 
 
     @GET
-    @Path("/concerts")
+    @Path(ALL_CONCERTS)
     @Produces({MediaType.APPLICATION_XML})
     @Consumes({MediaType.APPLICATION_XML})
     public Response retrieveAllConcert() {
