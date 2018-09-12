@@ -18,4 +18,6 @@ public class Config {
     public final static String USER_URI="/user";
 
     public final static String CREATE_USER="/create";
+
+    public final static String AUTHENTICATE_USER = "/authenticate";
 }

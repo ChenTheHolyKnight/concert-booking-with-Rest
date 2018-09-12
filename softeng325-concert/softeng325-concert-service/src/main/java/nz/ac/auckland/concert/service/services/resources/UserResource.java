@@ -17,6 +17,7 @@ import javax.ws.rs.core.Response;
 import java.net.URI;
 import java.util.List;
 
+import static nz.ac.auckland.concert.common.Config.AUTHENTICATE_USER;
 import static nz.ac.auckland.concert.common.Config.CREATE_USER;
 import static nz.ac.auckland.concert.common.Config.USER_URI;
 
@@ -39,11 +40,12 @@ public class UserResource extends ServiceResource {
     @Produces({MediaType.APPLICATION_XML})
     @Consumes({MediaType.APPLICATION_XML})
     public Response createUser(UserDTO userDTO, @CookieParam(COOKIE) Cookie cookie) {
+        _entityManager.getTransaction().begin();
         if(!checkEmptyField(userDTO)){
-            return Response.status(Response.Status.NOT_FOUND).entity(Messages.CREATE_USER_WITH_MISSING_FIELDS).build();
+            return Response.status(Response.Status.BAD_REQUEST).entity(Messages.CREATE_USER_WITH_MISSING_FIELDS).build();
         }
         if(checkUserNameExists(userDTO)){
-            return Response.status(Response.Status.NOT_FOUND).entity(Messages.CREATE_USER_WITH_NON_UNIQUE_NAME).build();
+            return Response.status(Response.Status.BAD_REQUEST).entity(Messages.CREATE_USER_WITH_NON_UNIQUE_NAME).build();
         }
 
         User user = UserMapper.ToUser(userDTO);
@@ -56,15 +58,25 @@ public class UserResource extends ServiceResource {
 
     }
 
-    private boolean checkUserNameExists(UserDTO userDTO){
+    @GET
+    @Path(AUTHENTICATE_USER)
+    public Response authenticateUser(UserDTO userDTO){
+        if(!checkEmptyField(userDTO)){
+            throw new BadRequestException(Response.status(Response.Status.BAD_REQUEST).entity(Messages.AUTHENTICATE_USER_WITH_MISSING_FIELDS).build());
+        }
+        if(!checkUserNameExists(userDTO)){
+            throw new NotFoundException(Response.status(Response.Status.NOT_FOUND).entity(Messages.AUTHENTICATE_NON_EXISTENT_USER).build());
+        }
+        return null;
+    }
 
-        _entityManager.getTransaction().begin();
+    private boolean checkUserNameExists(UserDTO userDTO){
         List<User> users=_entityManager.createQuery("SELECT u FROM User u", User.class).getResultList();
         boolean isExists=false;
         for(User e: users) {
             String username = e.getUsername();
             String user = userDTO.getUsername();
-            if (user == username) {
+            if (user.equals(username)) {
                 isExists = true;
             }
         }

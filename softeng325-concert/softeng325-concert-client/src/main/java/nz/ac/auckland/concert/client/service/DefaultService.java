@@ -4,6 +4,7 @@ import nz.ac.auckland.concert.common.dto.*;
 import nz.ac.auckland.concert.common.message.Messages;
 import nz.ac.auckland.concert.service.domain.model.Performer;
 
+import javax.ws.rs.ProcessingException;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 
@@ -56,7 +57,7 @@ public class DefaultService implements ConcertService{
             if(response.getStatus()==Response.Status.OK.getStatusCode()){
                 performerDTOS=response.readEntity(new GenericType<Set<PerformerDTO>>(){});
             }
-        }catch (Exception e){
+        }catch (ServiceException e){
             throw new ServiceException(Messages.SERVICE_COMMUNICATION_ERROR);
         }
         return performerDTOS;
@@ -64,20 +65,18 @@ public class DefaultService implements ConcertService{
 
     @Override
     public UserDTO createUser(UserDTO newUser) throws ServiceException {
-        UserDTO userDTO=null;
         try {
             client=ClientBuilder.newClient();
             Builder builder=client.target(WEB_SERVICE_URI+USER_URI+CREATE_USER).request().accept(MediaType.APPLICATION_XML);
             Response response=builder.post(Entity.entity(newUser,MediaType.APPLICATION_XML));
-            if(response.getStatus()==Response.Status.CREATED.getStatusCode()){
-                userDTO=response.readEntity(UserDTO.class);
+            if (response.getStatus()==Response.Status.CREATED.getStatusCode()){
+                return response.readEntity(UserDTO.class);
+            } else {
+                throw new ServiceException(response.readEntity(String.class));
             }
-        }catch (Exception e){
+        } catch (ProcessingException e){
             throw new ServiceException(Messages.SERVICE_COMMUNICATION_ERROR);
-        }finally {
-            return userDTO;
         }
-
     }
 
     @Override
