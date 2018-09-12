@@ -1,5 +1,8 @@
 package nz.ac.auckland.concert.service.services;
 
+import nz.ac.auckland.concert.service.services.resources.ConcertResource;
+import nz.ac.auckland.concert.service.services.resources.PerformerResource;
+
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 import java.util.HashSet;

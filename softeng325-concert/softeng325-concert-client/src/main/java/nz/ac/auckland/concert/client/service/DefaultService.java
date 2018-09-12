@@ -1,6 +1,7 @@
 package nz.ac.auckland.concert.client.service;
 
 import nz.ac.auckland.concert.common.dto.*;
+import nz.ac.auckland.concert.common.message.Messages;
 import nz.ac.auckland.concert.service.domain.model.Performer;
 
 import javax.ws.rs.client.Client;
@@ -32,12 +33,11 @@ public class DefaultService implements ConcertService{
             client= ClientBuilder.newClient();
             Builder builder=client.target(WEB_SERVICE_URI + CONCERTS_URI).request().accept(MediaType.APPLICATION_XML);
             Response response=builder.get();
-            System.out.println("Rob"+response.getStatus());
             if(response.getStatus()==Response.Status.OK.getStatusCode()){
                 concertDTOS=response.readEntity(new GenericType<Set<ConcertDTO>>(){});
             }
         }catch (Exception e){
-            System.out.println("not working");
+            throw new ServiceException(Messages.SERVICE_COMMUNICATION_ERROR);
         }
         return concertDTOS;
     }
@@ -50,18 +50,24 @@ public class DefaultService implements ConcertService{
             client= ClientBuilder.newClient();
             Builder builder=client.target(WEB_SERVICE_URI + PERFORMERS_URI).request().accept(MediaType.APPLICATION_XML);
             Response response=builder.get();
-            System.out.println("Rob"+response.getStatus());
             if(response.getStatus()==Response.Status.OK.getStatusCode()){
                 performerDTOS=response.readEntity(new GenericType<Set<PerformerDTO>>(){});
             }
         }catch (Exception e){
-            System.out.println("not working");
+            throw new ServiceException(Messages.SERVICE_COMMUNICATION_ERROR);
         }
         return performerDTOS;
     }
 
     @Override
     public UserDTO createUser(UserDTO newUser) throws ServiceException {
+        UserDTO userDTO=null;
+        try {
+            client=ClientBuilder.newClient();
+            Builder builder=client.target(WEB_SERVICE_URI).request().accept(MediaType.APPLICATION_XML);
+        }catch (Exception e){
+            throw new ServiceException(Messages.SERVICE_COMMUNICATION_ERROR);
+        }
         return null;
     }
 
