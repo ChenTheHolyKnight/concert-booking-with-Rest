@@ -1,5 +1,6 @@
 package nz.ac.auckland.concert.client.service;
 
+import nz.ac.auckland.concert.common.Config;
 import nz.ac.auckland.concert.common.dto.*;
 import nz.ac.auckland.concert.common.message.Messages;
 import nz.ac.auckland.concert.service.domain.model.Performer;
@@ -12,8 +13,12 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.Invocation.Builder;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.NewCookie;
 import javax.ws.rs.core.Response;
 import java.awt.*;
+import java.util.HashSet;
+import java.util.Hashtable;
+import java.util.Map;
 import java.util.Set;
 
 import static nz.ac.auckland.concert.common.Config.*;
@@ -21,9 +26,12 @@ import static nz.ac.auckland.concert.common.Config.*;
 public class DefaultService implements ConcertService{
 
     Client client;
-    /*private final static String WEB_SERVICE_URI="http://localhost:10000/services";
-    private final static String CONCERTS_URI="/concert/concerts";
-    private final static String PERFORMERS_URI="/performer/performers";*/
+
+    private Response _response;
+
+    private Set<String> _cookieValues=new HashSet<>();
+
+
 
 
 
@@ -35,12 +43,16 @@ public class DefaultService implements ConcertService{
         try{
             client= ClientBuilder.newClient();
             Builder builder=client.target(WEB_SERVICE_URI + CONCERTS_URI + ALL_CONCERTS).request().accept(MediaType.APPLICATION_XML);
-            Response response=builder.get();
-            if(response.getStatus()==Response.Status.OK.getStatusCode()){
-                concertDTOS=response.readEntity(new GenericType<Set<ConcertDTO>>(){});
+            addCookieToInvocation(builder);
+             _response=builder.get();
+            if(_response.getStatus()==Response.Status.OK.getStatusCode()){
+                concertDTOS=_response.readEntity(new GenericType<Set<ConcertDTO>>(){});
             }
         }catch (Exception e){
             throw new ServiceException(Messages.SERVICE_COMMUNICATION_ERROR);
+        }finally {
+            processCookieFromResponse(_response);
+            client.close();
         }
         return concertDTOS;
     }
@@ -52,12 +64,16 @@ public class DefaultService implements ConcertService{
         try{
             client= ClientBuilder.newClient();
             Builder builder=client.target(WEB_SERVICE_URI + PERFORMERS_URI + ALL_PERFORMERS).request().accept(MediaType.APPLICATION_XML);
-            Response response=builder.get();
-            if(response.getStatus()==Response.Status.OK.getStatusCode()){
-                performerDTOS=response.readEntity(new GenericType<Set<PerformerDTO>>(){});
+            addCookieToInvocation(builder);
+            _response=builder.get();
+            if(_response.getStatus()==Response.Status.OK.getStatusCode()){
+                performerDTOS=_response.readEntity(new GenericType<Set<PerformerDTO>>(){});
             }
         }catch (ServiceException e){
             throw new ServiceException(Messages.SERVICE_COMMUNICATION_ERROR);
+        } finally {
+            processCookieFromResponse(_response);
+            client.close();
         }
         return performerDTOS;
     }
@@ -67,14 +83,18 @@ public class DefaultService implements ConcertService{
         try {
             client=ClientBuilder.newClient();
             Builder builder=client.target(WEB_SERVICE_URI+USER_URI+CREATE_USER).request().accept(MediaType.APPLICATION_XML);
-            Response response=builder.post(Entity.entity(newUser,MediaType.APPLICATION_XML));
-            if (response.getStatus()==Response.Status.CREATED.getStatusCode()){
-                return response.readEntity(UserDTO.class);
+            addCookieToInvocation(builder);
+            _response=builder.post(Entity.entity(newUser,MediaType.APPLICATION_XML));
+            if (_response.getStatus()==Response.Status.CREATED.getStatusCode()){
+                return _response.readEntity(UserDTO.class);
             } else {
-                throw new ServiceException(response.readEntity(String.class));
+                throw new ServiceException(_response.readEntity(String.class));
             }
         } catch (ProcessingException e){
             throw new ServiceException(Messages.SERVICE_COMMUNICATION_ERROR);
+        }finally {
+            processCookieFromResponse(_response);
+            client.close();
         }
     }
 
@@ -83,15 +103,18 @@ public class DefaultService implements ConcertService{
         try {
             client=ClientBuilder.newClient();
             Builder builder=client.target(WEB_SERVICE_URI+USER_URI+AUTHENTICATE_USER).request().accept(MediaType.APPLICATION_XML);
-            Response response=builder.post(Entity.entity(user,MediaType.APPLICATION_XML));
-            System.out.println(response.getStatus());
-            if (response.getStatus()==Response.Status.OK.getStatusCode()){
-                return response.readEntity(UserDTO.class);
+            addCookieToInvocation(builder);
+            _response=builder.post(Entity.entity(user,MediaType.APPLICATION_XML));
+            if (_response.getStatus()==Response.Status.OK.getStatusCode()){
+                return _response.readEntity(UserDTO.class);
             } else {
-                throw new ServiceException(response.readEntity(String.class));
+                throw new ServiceException(_response.readEntity(String.class));
             }
         } catch (ProcessingException e){
             throw new ServiceException(Messages.SERVICE_COMMUNICATION_ERROR);
+        }finally {
+            processCookieFromResponse(_response);
+            client.close();
         }
 
     }
@@ -113,11 +136,48 @@ public class DefaultService implements ConcertService{
 
     @Override
     public void registerCreditCard(CreditCardDTO creditCard) throws ServiceException {
-
+        try {
+            client=ClientBuilder.newClient();
+            Builder builder=client.target(WEB_SERVICE_URI+CREDITCARD_URI+REGISTER_CREDITCARD).request().accept(MediaType.APPLICATION_XML);
+            addCookieToInvocation(builder);
+            _response=builder.post(Entity.entity(creditCard,MediaType.APPLICATION_XML));
+            if (_response.getStatus()==Response.Status.OK.getStatusCode()){
+                return;
+            } else {
+                throw new ServiceException(_response.readEntity(String.class));
+            }
+        } catch (ProcessingException e){
+            throw new ServiceException(Messages.SERVICE_COMMUNICATION_ERROR);
+        }finally {
+            processCookieFromResponse(_response);
+            client.close();
+        }
     }
 
     @Override
     public Set<BookingDTO> getBookings() throws ServiceException {
         return null;
+    }
+
+
+    // Method to add any cookie previously returned from the Web service to an
+    // Invocation.Builder instance.
+    private void addCookieToInvocation(Builder builder) {
+        if(!_cookieValues.isEmpty()) {
+            builder.cookie(Config.COOKIE, _cookieValues.iterator().next());
+        }
+    }
+
+    // Method to extract any cookie from a Response object received from the
+    // Web service. If there is a cookie named clientId (Config.CLIENT_COOKIE)
+    // it is added to the _cookieValues set, which stores all cookie values for
+    // clientId received by the Web service.
+    private void processCookieFromResponse(Response response) {
+        Map<String, NewCookie> cookies = response.getCookies();
+
+        if(cookies.containsKey(Config.COOKIE)) {
+            String cookieValue = cookies.get(Config.COOKIE).getValue();
+            _cookieValues.add(cookieValue);
+        }
     }
 }

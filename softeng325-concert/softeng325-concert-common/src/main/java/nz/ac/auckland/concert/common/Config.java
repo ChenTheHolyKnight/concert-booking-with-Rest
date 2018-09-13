@@ -25,4 +25,7 @@ public class Config {
     public final static String CREDITCARD_URI="/creditcard";
 
     public final static String REGISTER_CREDITCARD = "/register";
+
+    //URI for the cookie
+    public static final String COOKIE = "clientId";
 }

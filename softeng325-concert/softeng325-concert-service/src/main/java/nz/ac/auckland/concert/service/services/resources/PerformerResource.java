@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.Set;
 
 import static nz.ac.auckland.concert.common.Config.ALL_PERFORMERS;
+import static nz.ac.auckland.concert.common.Config.COOKIE;
 import static nz.ac.auckland.concert.common.Config.PERFORMERS_URI;
 
 @Path(PERFORMERS_URI)

@@ -1,5 +1,6 @@
 package nz.ac.auckland.concert.service.domain.model;
 
+import nz.ac.auckland.concert.common.dto.CreditCardDTO.Type;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
@@ -18,8 +19,6 @@ import java.time.LocalDate;
  */
 @Entity
 public class CreditCard {
-	
-	public enum Type {Visa, Master};
 
 	@Id
 	@GeneratedValue
@@ -29,14 +28,18 @@ public class CreditCard {
 	private String _name;
 	private String _number;
 	private LocalDate _expiryDate;
+
+	@OneToOne(cascade = CascadeType.ALL,mappedBy = "_creditCard")
+	private User _user;
 	
 	public CreditCard() {}
 	
-	public CreditCard(Type type, String name, String number, LocalDate expiryDate) {
+	public CreditCard(Type type, String name, String number, LocalDate expiryDate,User user) {
 		_type = type;
 		_name = name;
 		_number = number;
 		_expiryDate = expiryDate;
+		_user = user;
 	}
 	
 	public Type getType() {

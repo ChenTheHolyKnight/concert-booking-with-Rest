@@ -26,8 +26,12 @@ public class User {
 	private String _password;
 	private String _firstname;
 	private String _lastname;
-
+    @Column(name = "uuid")
 	private String _uuid;
+
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private CreditCard _creditCard;
 	
 	protected User() {}
 	
@@ -58,6 +62,14 @@ public class User {
 	public String getUUID(){
 		return _uuid;
 	}
+
+    public CreditCard getCreditCard() {
+        return _creditCard;
+    }
+
+    public void setCreditCard(CreditCard creditCard){
+	    _creditCard=creditCard;
+    }
 	
 	@Override
 	public boolean equals(Object obj) {

@@ -4,8 +4,10 @@ import javax.ws.rs.core.Cookie;
 import javax.ws.rs.core.NewCookie;
 import java.util.UUID;
 
+import static nz.ac.auckland.concert.common.Config.COOKIE;
+
 public abstract class ServiceResource {
-    protected static final String COOKIE = "clientId";
+    //protected static final String COOKIE = "clientId";
 
     protected static NewCookie makeCookie(Cookie clientId) {
         NewCookie newCookie;
@@ -16,4 +18,6 @@ public abstract class ServiceResource {
         }
         return newCookie;
     }
+
+
 }

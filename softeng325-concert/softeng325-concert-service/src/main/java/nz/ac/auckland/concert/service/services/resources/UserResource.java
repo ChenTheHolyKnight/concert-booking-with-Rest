@@ -17,9 +17,7 @@ import javax.ws.rs.core.Response;
 import java.net.URI;
 import java.util.List;
 
-import static nz.ac.auckland.concert.common.Config.AUTHENTICATE_USER;
-import static nz.ac.auckland.concert.common.Config.CREATE_USER;
-import static nz.ac.auckland.concert.common.Config.USER_URI;
+import static nz.ac.auckland.concert.common.Config.*;
 
 @Path(USER_URI)
 public class UserResource extends ServiceResource {

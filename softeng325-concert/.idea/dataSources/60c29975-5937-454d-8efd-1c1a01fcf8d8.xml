@@ -469,15 +469,34 @@ _SEATS__ID</ColNames>
       <DataType>VARCHAR(255)|12s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="105" parent="17" name="PRIMARY_KEY_27">
+    <column id="105" parent="17" name="UUID">
+      <Position>6</Position>
+      <DataType>VARCHAR(255)|12s</DataType>
+    </column>
+    <column id="106" parent="17" name="_CREDITCARD_ID">
+      <Position>7</Position>
+      <DataType>BIGINT(19)|-5s</DataType>
+    </column>
+    <index id="107" parent="17" name="PRIMARY_KEY_27">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="106" parent="17" name="CONSTRAINT_27">
+    <index id="108" parent="17" name="FK5L3KD34TR55SWHPAI6HNQNA77_INDEX_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>_CREDITCARD_ID</ColNames>
+    </index>
+    <key id="109" parent="17" name="CONSTRAINT_27">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
     </key>
+    <foreign-key id="110" parent="17" name="FK5L3KD34TR55SWHPAI6HNQNA77">
+      <ColNames>_CREDITCARD_ID</ColNames>
+      <RefSchemaName>PUBLIC</RefSchemaName>
+      <RefTableName>CREDITCARD</RefTableName>
+      <RefKeyName>CONSTRAINT_FB</RefKeyName>
+      <RefColNames>ID</RefColNames>
+    </foreign-key>
   </database-model>
 </dataSource>

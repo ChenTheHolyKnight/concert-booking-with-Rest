@@ -20,6 +20,7 @@ import java.util.Set;
 
 import static nz.ac.auckland.concert.common.Config.ALL_CONCERTS;
 import static nz.ac.auckland.concert.common.Config.CONCERTS_URI;
+import static nz.ac.auckland.concert.common.Config.COOKIE;
 
 
 @Path(CONCERTS_URI)
@@ -46,7 +47,6 @@ public class ConcertResource extends ServiceResource{
         Set<ConcertDTO> concertDTOS=new HashSet<>();
         concerts.forEach(concert -> concertDTOS.add(ConcertMapper.toDTO(concert)));
         entityManager.getTransaction().commit();
-        System.out.println("Rob + Penis "+concerts.size());
 
         if(!concertDTOS.isEmpty()){
             GenericEntity<Set<ConcertDTO>> entity = new GenericEntity<Set<ConcertDTO>>(concertDTOS) {};
