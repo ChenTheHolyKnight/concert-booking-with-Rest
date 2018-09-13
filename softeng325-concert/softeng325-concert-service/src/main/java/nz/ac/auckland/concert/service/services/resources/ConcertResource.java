@@ -39,7 +39,7 @@ public class ConcertResource extends ServiceResource{
     @Path(ALL_CONCERTS)
     @Produces({MediaType.APPLICATION_XML})
     @Consumes({MediaType.APPLICATION_XML})
-    public Response retrieveAllConcert() {
+    public Response retrieveAllConcert(@CookieParam(COOKIE) Cookie clientId) {
         EntityManager entityManager=_persistenceManager.createEntityManager();
         entityManager.getTransaction().begin();
         List<Concert> concerts=entityManager.createQuery("SELECT c FROM Concert c",Concert.class).getResultList();
@@ -50,7 +50,7 @@ public class ConcertResource extends ServiceResource{
 
         if(!concertDTOS.isEmpty()){
             GenericEntity<Set<ConcertDTO>> entity = new GenericEntity<Set<ConcertDTO>>(concertDTOS) {};
-            return Response.ok(entity).build();
+            return Response.ok(entity).cookie(makeCookie(clientId)).build();
         }else{
             return Response.status(Response.Status.NOT_FOUND).build();
         }

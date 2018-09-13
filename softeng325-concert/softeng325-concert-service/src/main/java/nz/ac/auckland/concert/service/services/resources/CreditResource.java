@@ -2,8 +2,10 @@ package nz.ac.auckland.concert.service.services.resources;
 
 import nz.ac.auckland.concert.common.dto.CreditCardDTO;
 
+import javax.ws.rs.CookieParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.core.Cookie;
 import javax.xml.ws.Response;
 
 import static nz.ac.auckland.concert.common.Config.CREDITCARD_URI;
@@ -14,7 +16,7 @@ public class CreditResource extends ServiceResource{
 
     @POST
     @Path(REGISTER_CREDITCARD)
-    public Response registerCreditCard(CreditCardDTO creditCardDTO){
+    public Response registerCreditCard(CreditCardDTO creditCardDTO,@CookieParam(COOKIE) Cookie clientId){
         return null;
     }
 }

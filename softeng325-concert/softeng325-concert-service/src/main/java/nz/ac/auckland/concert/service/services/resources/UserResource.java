@@ -39,7 +39,7 @@ public class UserResource extends ServiceResource {
     @Path(CREATE_USER)
     @Produces({MediaType.APPLICATION_XML})
     @Consumes({MediaType.APPLICATION_XML})
-    public Response createUser(UserDTO userDTO, @CookieParam(COOKIE) Cookie cookie) {
+    public Response createUser(UserDTO userDTO, @CookieParam(COOKIE) Cookie clientId) {
         _entityManager.getTransaction().begin();
         if(!checkEmptyField(userDTO)){
             return Response.status(Response.Status.BAD_REQUEST).entity(Messages.CREATE_USER_WITH_MISSING_FIELDS).build();
@@ -47,12 +47,14 @@ public class UserResource extends ServiceResource {
         if(checkUserNameExists(userDTO)){
             return Response.status(Response.Status.BAD_REQUEST).entity(Messages.CREATE_USER_WITH_NON_UNIQUE_NAME).build();
         }
+        NewCookie newCookie=makeCookie(clientId);
+        String uuid=newCookie.getValue();
 
-        User user = UserMapper.ToUser(userDTO);
+        User user = UserMapper.ToUser(userDTO,uuid);
         _entityManager.persist(user);
         _entityManager.getTransaction().commit();
 
-        NewCookie newCookie=makeCookie(cookie);
+
 
         return Response.created(URI.create(CREATE_USER+"/"+user.getUsername())).entity(userDTO).cookie(newCookie).build();
 
@@ -60,7 +62,7 @@ public class UserResource extends ServiceResource {
 
     @POST
     @Path(AUTHENTICATE_USER)
-    public Response authenticateUser(UserDTO userDTO){
+    public Response authenticateUser(UserDTO userDTO, @CookieParam(COOKIE) Cookie clientId){
         _entityManager.getTransaction().begin();
         if(!checkAuthenticationEmptyField(userDTO)){
             return Response.status(Response.Status.BAD_REQUEST).entity(Messages.AUTHENTICATE_USER_WITH_MISSING_FIELDS).build();
@@ -72,7 +74,7 @@ public class UserResource extends ServiceResource {
             for(int i=0;i<users.size();i++){
                 User user=users.get(i);
                 if(user.getPassword().equals(userDTO.getPassword()) && user.getUsername().equals(userDTO.getUsername())){
-                    return Response.status(Response.Status.OK).entity(UserMapper.ToDTO(user)).build();
+                    return Response.status(Response.Status.OK).entity(UserMapper.ToDTO(user)).cookie(makeCookie(clientId)).build();
                 }
             }
             _entityManager.getTransaction().commit();

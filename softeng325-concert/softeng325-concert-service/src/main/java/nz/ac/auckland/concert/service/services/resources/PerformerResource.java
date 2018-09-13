@@ -8,10 +8,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.persistence.EntityManager;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
+import javax.ws.rs.core.Cookie;
 import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -40,7 +38,7 @@ public class PerformerResource extends ServiceResource{
     @Path(ALL_PERFORMERS)
     @Produces({MediaType.APPLICATION_XML})
     @Consumes({MediaType.APPLICATION_XML})
-    public Response retrieveAllConcert() {
+    public Response retrieveAllConcert(@CookieParam(COOKIE) Cookie clientId) {
         EntityManager entityManager=_persistenceManager.createEntityManager();
         entityManager.getTransaction().begin();
         List<Performer> performers=entityManager.createQuery("SELECT p FROM Performer p",Performer.class).getResultList();
@@ -50,7 +48,7 @@ public class PerformerResource extends ServiceResource{
 
         if(!performerDTOS.isEmpty()){
             GenericEntity<Set<PerformerDTO>> entity = new GenericEntity<Set<PerformerDTO>>(performerDTOS) {};
-            return Response.ok(entity).build();
+            return Response.ok(entity).cookie(makeCookie(clientId)).build();
         }else{
             return Response.status(Response.Status.NOT_FOUND).build();
         }

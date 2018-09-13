@@ -26,20 +26,19 @@ public class User {
 	private String _password;
 	private String _firstname;
 	private String _lastname;
+
+	private String _uuid;
 	
 	protected User() {}
 	
-	public User(String username, String password, String lastname, String firstname) {
+	public User(String username, String password, String lastname, String firstname,String uuid) {
 		_username = username;
 		_password = password;
 		_lastname = lastname;
 		_firstname = firstname;
+		_uuid=uuid;
 	}
-	
-	public User(String username, String password) {
-		this(username, password, null, null);
-	}
-	
+
 	public String getUsername() {
 		return _username;
 	}
@@ -54,6 +53,10 @@ public class User {
 	
 	public String getLastname() {
 		return _lastname;
+	}
+
+	public String getUUID(){
+		return _uuid;
 	}
 	
 	@Override
