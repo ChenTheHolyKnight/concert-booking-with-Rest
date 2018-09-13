@@ -58,16 +58,28 @@ public class UserResource extends ServiceResource {
 
     }
 
-    @GET
+    @POST
     @Path(AUTHENTICATE_USER)
     public Response authenticateUser(UserDTO userDTO){
+        _entityManager.getTransaction().begin();
         if(!checkEmptyField(userDTO)){
-            throw new BadRequestException(Response.status(Response.Status.BAD_REQUEST).entity(Messages.AUTHENTICATE_USER_WITH_MISSING_FIELDS).build());
+            return Response.status(Response.Status.BAD_REQUEST).entity(Messages.AUTHENTICATE_USER_WITH_MISSING_FIELDS).build();
         }
         if(!checkUserNameExists(userDTO)){
-            throw new NotFoundException(Response.status(Response.Status.NOT_FOUND).entity(Messages.AUTHENTICATE_NON_EXISTENT_USER).build());
+            return Response.status(Response.Status.NOT_FOUND).entity(Messages.AUTHENTICATE_NON_EXISTENT_USER).build();
+        }else{
+            List<User> users=_entityManager.createQuery("SELECT u FROM User u", User.class).getResultList();
+            for(int i=0;i<users.size();i++){
+                User user=users.get(i);
+                if(user.getPassword().equals(userDTO.getPassword()) && user.getUsername().equals(userDTO.getUsername())){
+                    return Response.status(Response.Status.OK).entity(userDTO).build();
+                }
+            }
+            _entityManager.getTransaction().commit();
+            return Response.status(Response.Status.BAD_REQUEST).entity(Messages.AUTHENTICATE_USER_WITH_ILLEGAL_PASSWORD).build();
         }
-        return null;
+
+
     }
 
     private boolean checkUserNameExists(UserDTO userDTO){

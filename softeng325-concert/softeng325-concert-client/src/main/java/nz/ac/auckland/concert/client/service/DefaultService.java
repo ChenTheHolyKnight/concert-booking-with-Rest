@@ -32,7 +32,6 @@ public class DefaultService implements ConcertService{
     @Override
     public Set<ConcertDTO> getConcerts() throws ServiceException {
         Set<ConcertDTO> concertDTOS = null;
-
         try{
             client= ClientBuilder.newClient();
             Builder builder=client.target(WEB_SERVICE_URI + CONCERTS_URI + ALL_CONCERTS).request().accept(MediaType.APPLICATION_XML);
@@ -81,7 +80,19 @@ public class DefaultService implements ConcertService{
 
     @Override
     public UserDTO authenticateUser(UserDTO user) throws ServiceException {
-        return null;
+        try {
+            client=ClientBuilder.newClient();
+            Builder builder=client.target(WEB_SERVICE_URI+USER_URI+AUTHENTICATE_USER).request().accept(MediaType.APPLICATION_XML);
+            Response response=builder.post(Entity.entity(user,MediaType.APPLICATION_XML));
+            if (response.getStatus()==Response.Status.OK.getStatusCode()){
+                return response.readEntity(UserDTO.class);
+            } else {
+                throw new ServiceException(response.readEntity(String.class));
+            }
+        } catch (ProcessingException e){
+            throw new ServiceException(Messages.SERVICE_COMMUNICATION_ERROR);
+        }
+
     }
 
     @Override
