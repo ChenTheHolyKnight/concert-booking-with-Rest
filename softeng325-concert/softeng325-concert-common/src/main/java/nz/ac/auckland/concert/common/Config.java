@@ -20,4 +20,9 @@ public class Config {
     public final static String CREATE_USER="/create";
 
     public final static String AUTHENTICATE_USER = "/authenticate";
+
+    //URI for the credit card
+    public final static String CREDITCARD_URI="/creditcard";
+
+    public final static String REGISTER_CREDITCARD = "/register";
 }
