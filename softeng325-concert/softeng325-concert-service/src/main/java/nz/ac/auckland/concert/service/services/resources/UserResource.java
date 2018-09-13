@@ -62,7 +62,7 @@ public class UserResource extends ServiceResource {
     @Path(AUTHENTICATE_USER)
     public Response authenticateUser(UserDTO userDTO){
         _entityManager.getTransaction().begin();
-        if(!checkEmptyField(userDTO)){
+        if(!checkAuthenticationEmptyField(userDTO)){
             return Response.status(Response.Status.BAD_REQUEST).entity(Messages.AUTHENTICATE_USER_WITH_MISSING_FIELDS).build();
         }
         if(!checkUserNameExists(userDTO)){
@@ -72,7 +72,7 @@ public class UserResource extends ServiceResource {
             for(int i=0;i<users.size();i++){
                 User user=users.get(i);
                 if(user.getPassword().equals(userDTO.getPassword()) && user.getUsername().equals(userDTO.getUsername())){
-                    return Response.status(Response.Status.OK).entity(userDTO).build();
+                    return Response.status(Response.Status.OK).entity(UserMapper.ToDTO(user)).build();
                 }
             }
             _entityManager.getTransaction().commit();
@@ -104,6 +104,18 @@ public class UserResource extends ServiceResource {
         if(userDTO.getLastname()==null){
             return false;
         }
+        if(userDTO.getPassword()==null){
+            return false;
+        }
+        if (userDTO.getUsername()==null){
+            return false;
+        }
+
+        return true;
+    }
+
+    private boolean checkAuthenticationEmptyField(UserDTO userDTO){
+
         if(userDTO.getPassword()==null){
             return false;
         }

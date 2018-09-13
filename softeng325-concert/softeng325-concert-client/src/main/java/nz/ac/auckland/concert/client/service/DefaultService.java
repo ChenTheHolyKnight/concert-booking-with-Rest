@@ -84,6 +84,7 @@ public class DefaultService implements ConcertService{
             client=ClientBuilder.newClient();
             Builder builder=client.target(WEB_SERVICE_URI+USER_URI+AUTHENTICATE_USER).request().accept(MediaType.APPLICATION_XML);
             Response response=builder.post(Entity.entity(user,MediaType.APPLICATION_XML));
+            System.out.println(response.getStatus());
             if (response.getStatus()==Response.Status.OK.getStatusCode()){
                 return response.readEntity(UserDTO.class);
             } else {

@@ -13,4 +13,13 @@ public class UserMapper {
                 userDTO.getFirstname()
         );
     }
+    public static UserDTO ToDTO(User user){
+        return new UserDTO(
+
+                user.getUsername(),
+                user.getPassword(),
+                user.getLastname(),
+                user.getFirstname()
+        );
+    }
 }
