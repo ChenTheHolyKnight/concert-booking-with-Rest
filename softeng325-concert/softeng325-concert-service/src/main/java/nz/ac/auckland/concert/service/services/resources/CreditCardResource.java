@@ -1,7 +1,6 @@
 package nz.ac.auckland.concert.service.services.resources;
 
 import nz.ac.auckland.concert.common.dto.CreditCardDTO;
-import nz.ac.auckland.concert.common.dto.UserDTO;
 import nz.ac.auckland.concert.common.message.Messages;
 import nz.ac.auckland.concert.service.domain.model.CreditCard;
 import nz.ac.auckland.concert.service.domain.model.User;
@@ -14,13 +13,9 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.Cookie;
 import javax.ws.rs.core.Response;
-
-
 import java.util.List;
 
-import static nz.ac.auckland.concert.common.Config.COOKIE;
-import static nz.ac.auckland.concert.common.Config.CREDITCARD_URI;
-import static nz.ac.auckland.concert.common.Config.REGISTER_CREDITCARD;
+import static nz.ac.auckland.concert.common.Config.*;
 
 @Path(CREDITCARD_URI)
 public class CreditCardResource extends ServiceResource{

@@ -1,13 +1,13 @@
 package nz.ac.auckland.concert.client.service;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
+import java.awt.*;
+import java.awt.color.ICC_ColorSpace;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Set;
 
+import javax.swing.*;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 
@@ -23,6 +23,7 @@ import nz.ac.auckland.concert.common.dto.UserDTO;
 import nz.ac.auckland.concert.common.message.Messages;
 import nz.ac.auckland.concert.common.types.PriceBand;
 import nz.ac.auckland.concert.common.types.SeatRow;
+import nz.ac.auckland.concert.service.domain.model.Performer;
 import nz.ac.auckland.concert.service.services.ConcertApplication;
 import nz.ac.auckland.concert.utility.TheatreLayout;
 
@@ -37,6 +38,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import static org.junit.Assert.*;
 
 /**
  * Tests for a ConcertService implementation.
@@ -427,5 +430,16 @@ public class ConcertServiceTest {
 		} catch(ServiceException e) {
 			assertEquals(Messages.UNAUTHENTICATED_REQUEST, e.getMessage());
 		} 
+	}
+
+	/**
+     * My personal test to test the generated image is not null
+     */
+	@Test
+	public void testImage(){
+		Set<PerformerDTO> performerDTOList=_service.getPerformers();
+		PerformerDTO performerDTO=performerDTOList.iterator().next();
+		Image image=_service.getImageForPerformer(performerDTO);
+		assertFalse(image==null);
 	}
 }

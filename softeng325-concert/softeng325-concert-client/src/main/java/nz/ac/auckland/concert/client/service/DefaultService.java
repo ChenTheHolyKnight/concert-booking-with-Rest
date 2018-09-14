@@ -1,14 +1,17 @@
 package nz.ac.auckland.concert.client.service;
 
+import com.amazonaws.auth.AWSStaticCredentialsProvider;
+import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.regions.Regions;
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import nz.ac.auckland.concert.common.Config;
 import nz.ac.auckland.concert.common.dto.*;
 import nz.ac.auckland.concert.common.message.Messages;
-import nz.ac.auckland.concert.service.domain.model.Performer;
 
 import javax.ws.rs.ProcessingException;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
-
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.Invocation.Builder;
 import javax.ws.rs.core.GenericType;
@@ -17,7 +20,6 @@ import javax.ws.rs.core.NewCookie;
 import javax.ws.rs.core.Response;
 import java.awt.*;
 import java.util.HashSet;
-import java.util.Hashtable;
 import java.util.Map;
 import java.util.Set;
 
@@ -30,10 +32,6 @@ public class DefaultService implements ConcertService{
     private Response _response;
 
     private Set<String> _cookieValues=new HashSet<>();
-
-
-
-
 
 
 
@@ -121,7 +119,25 @@ public class DefaultService implements ConcertService{
 
     @Override
     public Image getImageForPerformer(PerformerDTO performer) throws ServiceException {
-        return null;
+        AWS aws =new AWS();
+        try {
+            String imageName=performer.getImageName();
+            if(imageName==null || !getPerformers().contains(performer)){
+                throw new ServiceException(Messages.NO_IMAGE_FOR_PERFORMER);
+            }
+            Image image=aws.fetchImage(imageName);
+            if(image==null){
+                throw new ServiceException(Messages.NO_IMAGE_FOR_PERFORMER);
+            }
+            return image;
+        } catch (ProcessingException e){
+            throw new ServiceException(Messages.SERVICE_COMMUNICATION_ERROR);
+        }finally {
+            processCookieFromResponse(_response);
+            client.close();
+        }
+
+
     }
 
     @Override
