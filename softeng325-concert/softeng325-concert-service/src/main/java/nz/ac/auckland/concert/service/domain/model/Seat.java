@@ -20,11 +20,17 @@ import java.time.LocalDateTime;
  */
 @Entity
 public class Seat {
+	@Version
+	@Column(nullable = false, name = "version")
+	private Long _version=0L;
 	@Id
 	@GeneratedValue
+    @Column(nullable = false)
 	private Long _id;
 	@Enumerated
+    @Column(nullable = false)
 	private SeatRow _row;
+	@Column(nullable = false)
 	@Convert(converter = SeatNumberConverter.class)
 	private SeatNumber _number;
 

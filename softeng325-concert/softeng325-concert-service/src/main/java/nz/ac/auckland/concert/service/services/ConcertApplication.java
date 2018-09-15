@@ -7,6 +7,7 @@ import nz.ac.auckland.concert.service.domain.model.Concert;
 import nz.ac.auckland.concert.service.domain.model.CreditCard;
 import nz.ac.auckland.concert.service.domain.model.Seat;
 import nz.ac.auckland.concert.service.services.resources.*;
+import nz.ac.auckland.concert.utility.TheatreLayout;
 import org.jboss.resteasy.plugins.providers.jaxb.JAXBXmlTypeProvider;
 
 import javax.persistence.EntityManager;
@@ -31,14 +32,16 @@ public class ConcertApplication extends Application {
 
         EntityManager em = persistenceManager.createEntityManager();
         em.getTransaction().begin();
-        em.createQuery("DELETE FROM User").executeUpdate();
         em.createNativeQuery("DELETE FROM BOOKING_SEAT").executeUpdate();
         em.createNativeQuery("DELETE FROM BOOKING").executeUpdate();
         em.createNativeQuery("DELETE FROM CREDITCARD").executeUpdate();
         em.createNativeQuery("DELETE FROM RESERVATION_SEAT").executeUpdate();
         em.createNativeQuery("DELETE FROM SEAT").executeUpdate();
         em.createNativeQuery("DELETE FROM RESERVATION").executeUpdate();
+        em.createQuery("DELETE FROM User").executeUpdate();
         generateSeats(em);
+        em.flush();
+        em.clear();
         em.getTransaction().commit();
 
 
@@ -48,6 +51,7 @@ public class ConcertApplication extends Application {
         classes.add(CreditCardResource.class);
         classes.add(ReservationResource.class);
         singleton.add(persistenceManager);
+        em.close();
     }
 
     @Override
@@ -64,8 +68,15 @@ public class ConcertApplication extends Application {
 
         List<Timestamp> dates=entityManager.createNativeQuery("select C._DATES from CONCERT_DATES c").getResultList();
 
+        Set<SeatRow> rowA=TheatreLayout.getRowsForPriceBand(PriceBand.PriceBandA);
+        Set<SeatRow> rowB=TheatreLayout.getRowsForPriceBand(PriceBand.PriceBandB);
+        Set<SeatRow> rowC=TheatreLayout.getRowsForPriceBand(PriceBand.PriceBandC);
         for(int i=0;i<dates.size();i++){
-            Seat seat=new Seat(
+            LocalDateTime dateTime=dates.get(i).toLocalDateTime();
+            constructThreatre(rowA,PriceBand.PriceBandA,dateTime,entityManager);
+            constructThreatre(rowB,PriceBand.PriceBandB,dateTime,entityManager);
+            constructThreatre(rowC,PriceBand.PriceBandC,dateTime,entityManager);
+            /*Seat seat=new Seat(
                     SeatRow.N,
                     new SeatNumber(1),
                     PriceBand.PriceBandC,
@@ -80,8 +91,27 @@ public class ConcertApplication extends Application {
                     dates.get(i).toLocalDateTime()
             );
             entityManager.persist(seat);
-            entityManager.persist(seat1);
+            entityManager.persist(seat1);*/
+
         }
+
+    }
+
+    private void constructThreatre(Set<SeatRow> row,PriceBand pB,LocalDateTime dateTime,EntityManager entityManager){
+        row.forEach(seatRow -> {
+            int maxRow=TheatreLayout.getNumberOfSeatsForRow(seatRow);
+            for(int i=1;i<maxRow+1;i++){
+                Seat seat=new Seat(
+                  seatRow,
+                  new SeatNumber(i),
+                  pB,
+                  null, dateTime
+                );
+                entityManager.persist(seat);
+            }
+            entityManager.flush();
+            entityManager.clear();
+        });
 
     }
 }

@@ -23,21 +23,26 @@ import java.util.Set;
  */
 @Entity
 public class Reservation {
+	@Version
+	@Column(nullable = false,name = "version")
+	private Long _version=0L;
 	@Id
 	@GeneratedValue
+	@Column(nullable = false)
 	private Long _id;
+	@Column(nullable = false)
 	private ReservationRequest _request;
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "_reservation")
 	private Set<Seat> _seats;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private User _user;
 	private boolean _isConfirmed;
-	private int _expiryTime;
+	private long _expiryTime;
 
 
 	public Reservation() {}
 
-	public Reservation( ReservationRequest request, Set<Seat> seats,User user,int expiryTime) {
+	public Reservation( ReservationRequest request, Set<Seat> seats,User user,long expiryTime) {
 		_request = request;
 		_seats = new HashSet<Seat>(seats);
 		_user = user;
@@ -68,7 +73,7 @@ public class Reservation {
         return _user;
     }
 
-    public int getExpiryTime() {
+    public long getExpiryTime() {
         return _expiryTime;
     }
 

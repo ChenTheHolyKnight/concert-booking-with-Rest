@@ -327,7 +327,7 @@ _CONCERTS__ID</ColNames>
     </column>
     <column id="76" parent="14" name="_EXPIRYTIME">
       <Position>2</Position>
-      <DataType>INTEGER(10)|4s</DataType>
+      <DataType>BIGINT(19)|-5s</DataType>
       <NotNull>1</NotNull>
     </column>
     <column id="77" parent="14" name="_ISCONFIRMED">

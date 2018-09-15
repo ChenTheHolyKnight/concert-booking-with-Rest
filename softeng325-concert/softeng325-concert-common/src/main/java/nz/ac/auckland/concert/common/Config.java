@@ -32,6 +32,10 @@ public class Config {
 
     public final static String RESERVE_SEAT="/reserve";
 
+    public final static String CONFIRM="/confirm";
+
+    public final static String BOOKING="/book";
+
     //URI for the cookie
     public static final String COOKIE = "clientId";
 

@@ -47,7 +47,7 @@ public class ConcertResource extends ServiceResource{
         Set<ConcertDTO> concertDTOS=new HashSet<>();
         concerts.forEach(concert -> concertDTOS.add(ConcertMapper.toDTO(concert)));
         entityManager.getTransaction().commit();
-
+        entityManager.close();
         if(!concertDTOS.isEmpty()){
             GenericEntity<Set<ConcertDTO>> entity = new GenericEntity<Set<ConcertDTO>>(concertDTOS) {};
             return Response.ok(entity).cookie(makeCookie(clientId)).build();

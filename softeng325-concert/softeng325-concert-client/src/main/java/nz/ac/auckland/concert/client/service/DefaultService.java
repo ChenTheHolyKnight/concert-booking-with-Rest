@@ -142,7 +142,7 @@ public class DefaultService implements ConcertService{
             Builder builder=client.target(WEB_SERVICE_URI+RESERVATION_URI+RESERVE_SEAT).request().accept(MediaType.APPLICATION_XML);
             addCookieToInvocation(builder);
             _response=builder.post(Entity.entity(reservationRequest,MediaType.APPLICATION_XML));
-            if (_response.getStatus()==Response.Status.OK.getStatusCode()){
+            if (_response.getStatus()==Response.Status.CREATED.getStatusCode()){
                 return _response.readEntity(ReservationDTO.class);
             } else {
                 throw new ServiceException(_response.readEntity(String.class));
@@ -157,7 +157,22 @@ public class DefaultService implements ConcertService{
 
     @Override
     public void confirmReservation(ReservationDTO reservation) throws ServiceException {
-
+        try {
+            client=ClientBuilder.newClient();
+            Builder builder=client.target(WEB_SERVICE_URI+RESERVATION_URI+CONFIRM).request().accept(MediaType.APPLICATION_XML);
+            addCookieToInvocation(builder);
+            _response=builder.post(Entity.entity(reservation,MediaType.APPLICATION_XML));
+            if (_response.getStatus()==Response.Status.OK.getStatusCode()){
+                return;
+            } else {
+                throw new ServiceException(_response.readEntity(String.class));
+            }
+        } catch (ProcessingException e){
+            throw new ServiceException(Messages.SERVICE_COMMUNICATION_ERROR);
+        }finally {
+            processCookieFromResponse(_response);
+            client.close();
+        }
     }
 
     @Override
@@ -182,7 +197,22 @@ public class DefaultService implements ConcertService{
 
     @Override
     public Set<BookingDTO> getBookings() throws ServiceException {
-        return null;
+        try {
+            client=ClientBuilder.newClient();
+            Builder builder=client.target(WEB_SERVICE_URI+RESERVATION_URI+BOOKING).request().accept(MediaType.APPLICATION_XML);
+            addCookieToInvocation(builder);
+            _response=builder.get();
+            if (_response.getStatus()==Response.Status.OK.getStatusCode()){
+                return _response.readEntity(new GenericType<Set<BookingDTO>>(){});
+            } else {
+                throw new ServiceException(_response.readEntity(String.class));
+            }
+        } catch (ProcessingException e){
+            throw new ServiceException(Messages.SERVICE_COMMUNICATION_ERROR);
+        }finally {
+            processCookieFromResponse(_response);
+            client.close();
+        }
     }
 
 
