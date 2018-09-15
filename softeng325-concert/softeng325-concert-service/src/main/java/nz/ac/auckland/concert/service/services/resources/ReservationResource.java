@@ -18,6 +18,8 @@ import javax.ws.rs.core.Cookie;
 import javax.ws.rs.core.Response;
 
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -46,8 +48,6 @@ public class ReservationResource extends ServiceResource {
 
 
         if(clientId==null){
-            System.out.println("hello");
-            System.out.println(clientId);
             return Response.status(Response.Status.UNAUTHORIZED).entity(Messages.UNAUTHENTICATED_REQUEST).build();
         }
         String uuid=clientId.getValue();
@@ -63,9 +63,17 @@ public class ReservationResource extends ServiceResource {
             return Response.status(Response.Status.BAD_REQUEST).entity(Messages.RESERVATION_REQUEST_WITH_MISSING_FIELDS).build();
         }
 
-        /*Reservation reservation=convertReservation(reservationRequestDTO,user);
-        _entityManager.persist(reservation);
-        _entityManager.getTransaction().commit();*/
+        Long id=reservationRequestDTO.getConcertId();
+        LocalDateTime date=reservationRequestDTO.getDate();
+        List<Concert> concerts=_entityManager.createQuery("select c from Concert c Join c._dates d where _ID =:id and d=:date")
+                .setParameter("id",id)
+                .setParameter("date",date)
+                .getResultList();
+        if(concerts==null || concerts.isEmpty()){
+            return Response.status(Response.Status.BAD_REQUEST).entity(Messages.CONCERT_NOT_SCHEDULED_ON_RESERVATION_DATE).build();
+        }
+
+
 
 
 
@@ -92,6 +100,8 @@ public class ReservationResource extends ServiceResource {
                 reservationRequestDTO.getDate()
         );
     }
+
+
 
     private boolean isIncompletion(ReservationRequestDTO reservationRequestDTODTO){
         if(reservationRequestDTODTO.getSeatType()==null){

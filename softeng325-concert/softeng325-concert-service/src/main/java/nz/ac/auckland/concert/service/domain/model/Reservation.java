@@ -31,14 +31,17 @@ public class Reservation {
 	private Set<Seat> _seats;
     @ManyToOne
     private User _user;
-	private boolean isConfirmed;
+	private boolean _isConfirmed;
+	private int _expiryTime;
+
 
 	public Reservation() {}
 
-	public Reservation( ReservationRequest request, Set<Seat> seats,User user) {
+	public Reservation( ReservationRequest request, Set<Seat> seats,User user,int expiryTime) {
 		_request = request;
 		_seats = new HashSet<Seat>(seats);
 		_user = user;
+		_expiryTime=expiryTime;
 	}
 	
 	public Long getId() {
@@ -54,15 +57,23 @@ public class Reservation {
 	}
 
 	public boolean getIsConfirmed() {
-		return isConfirmed;
+		return _isConfirmed;
 	}
 
 	public void setConfirmed(boolean confirmed) {
-		isConfirmed = confirmed;
+		_isConfirmed = confirmed;
 	}
 
     public User getUser() {
         return _user;
+    }
+
+    public int getExpiryTime() {
+        return _expiryTime;
+    }
+
+    public void setExpiryTime(int _expiryTime) {
+        this._expiryTime = _expiryTime;
     }
 	
 	@Override
@@ -86,6 +97,7 @@ public class Reservation {
 	            append(_seats).
 	            hashCode();
 	}
+
 
 
 }

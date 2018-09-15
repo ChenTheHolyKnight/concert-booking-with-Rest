@@ -7,7 +7,8 @@ import java.util.UUID;
 import static nz.ac.auckland.concert.common.Config.COOKIE;
 
 public abstract class ServiceResource {
-    //protected static final String COOKIE = "clientId";
+    protected static final int EXPIRY_TIME = 5;
+
 
     protected static NewCookie makeCookie(Cookie clientId) {
         NewCookie newCookie;
