@@ -1,5 +1,6 @@
 package nz.ac.auckland.concert.service.domain.model;
 
+import nz.ac.auckland.concert.common.types.PriceBand;
 import nz.ac.auckland.concert.common.types.SeatNumber;
 import nz.ac.auckland.concert.common.types.SeatRow;
 import nz.ac.auckland.concert.service.domain.jpa.SeatNumberConverter;
@@ -7,6 +8,7 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 /**
  * DTO class to represent seats at the concert venue. 
@@ -25,12 +27,20 @@ public class Seat {
 	private SeatRow _row;
 	@Convert(converter = SeatNumberConverter.class)
 	private SeatNumber _number;
+
+    private LocalDateTime _date;
+    private PriceBand _seatType;
+
+	@ManyToOne(cascade = CascadeType.ALL)
+	private Reservation _reservation;
 	
 	public Seat() {}
 	
-	public Seat(SeatRow row, SeatNumber number) {
+	public Seat(SeatRow row, SeatNumber number,Reservation reservation,LocalDateTime date) {
 		_row = row;
 		_number = number;
+		_reservation=reservation;
+		_date=date;
 	}
 	
 	public SeatRow getRow() {
@@ -44,7 +54,15 @@ public class Seat {
 	public Long getId(){
 		return _id;
 	}
-	
+
+	public Reservation getReservation(){
+		return _reservation;
+	}
+
+    public LocalDateTime getDate() {
+        return _date;
+    }
+
 	@Override
 	public boolean equals(Object obj) {
 		if (!(obj instanceof Seat))
@@ -58,6 +76,7 @@ public class Seat {
             append(_number, rhs._number).
             isEquals();
 	}
+
 	
 	@Override
 	public int hashCode() {

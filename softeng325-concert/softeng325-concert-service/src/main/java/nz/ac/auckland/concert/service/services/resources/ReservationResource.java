@@ -1,12 +1,10 @@
 package nz.ac.auckland.concert.service.services.resources;
 
-import nz.ac.auckland.concert.common.dto.ReservationDTO;
 import nz.ac.auckland.concert.common.dto.ReservationRequestDTO;
-import nz.ac.auckland.concert.common.dto.SeatDTO;
 import nz.ac.auckland.concert.common.message.Messages;
+import nz.ac.auckland.concert.common.types.PriceBand;
 import nz.ac.auckland.concert.service.domain.model.*;
 import nz.ac.auckland.concert.service.services.PersistenceManager;
-import nz.ac.auckland.concert.service.services.mapper.SeatMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,17 +14,10 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.Cookie;
 import javax.ws.rs.core.Response;
-
-
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
-import static nz.ac.auckland.concert.common.Config.COOKIE;
-import static nz.ac.auckland.concert.common.Config.RESERVATION_URI;
-import static nz.ac.auckland.concert.common.Config.RESERVE_SEAT;
+import static nz.ac.auckland.concert.common.Config.*;
 
 @Path(RESERVATION_URI)
 public class ReservationResource extends ServiceResource {
@@ -71,6 +62,17 @@ public class ReservationResource extends ServiceResource {
                 .getResultList();
         if(concerts==null || concerts.isEmpty()){
             return Response.status(Response.Status.BAD_REQUEST).entity(Messages.CONCERT_NOT_SCHEDULED_ON_RESERVATION_DATE).build();
+        }
+        PriceBand type=reservationRequestDTO.getSeatType();
+        int requestAmount=reservationRequestDTO.getNumberOfSeats();
+        List<Seat>  availableSeats=_entityManager.createQuery("select s from Seat s where s._date=:date and s._seatType=:type and s._reservation is NULL")
+                .setParameter("date",date)
+                .setParameter("type",type)
+                .setMaxResults(requestAmount)
+                .getResultList();
+
+        if(availableSeats.size()!=requestAmount){
+            return Response.status(Response.Status.BAD_REQUEST).entity(Messages.INSUFFICIENT_SEATS_AVAILABLE_FOR_RESERVATION).build();
         }
 
 
