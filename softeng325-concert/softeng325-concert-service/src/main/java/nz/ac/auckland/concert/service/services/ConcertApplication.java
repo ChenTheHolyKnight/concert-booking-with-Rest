@@ -1,13 +1,21 @@
 package nz.ac.auckland.concert.service.services;
 
+import nz.ac.auckland.concert.common.types.PriceBand;
+import nz.ac.auckland.concert.common.types.SeatNumber;
+import nz.ac.auckland.concert.common.types.SeatRow;
+import nz.ac.auckland.concert.service.domain.model.Concert;
 import nz.ac.auckland.concert.service.domain.model.CreditCard;
+import nz.ac.auckland.concert.service.domain.model.Seat;
 import nz.ac.auckland.concert.service.services.resources.*;
 import org.jboss.resteasy.plugins.providers.jaxb.JAXBXmlTypeProvider;
 
 import javax.persistence.EntityManager;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @ApplicationPath("/services")
@@ -30,6 +38,7 @@ public class ConcertApplication extends Application {
         em.createNativeQuery("DELETE FROM RESERVATION_SEAT").executeUpdate();
         em.createNativeQuery("DELETE FROM SEAT").executeUpdate();
         em.createNativeQuery("DELETE FROM RESERVATION").executeUpdate();
+        generateSeats(em);
         em.getTransaction().commit();
 
 
@@ -49,5 +58,30 @@ public class ConcertApplication extends Application {
     @Override
     public Set<Class<?>> getClasses() {
         return classes;
+    }
+
+    private void generateSeats(EntityManager entityManager){
+
+        List<Timestamp> dates=entityManager.createNativeQuery("select C._DATES from CONCERT_DATES c").getResultList();
+
+        for(int i=0;i<dates.size();i++){
+            Seat seat=new Seat(
+                    SeatRow.N,
+                    new SeatNumber(1),
+                    PriceBand.PriceBandC,
+                    null,
+                    dates.get(i).toLocalDateTime()
+            );
+            Seat seat1=new Seat(
+                    SeatRow.H,
+                    new SeatNumber(1),
+                    PriceBand.PriceBandC,
+                    null,
+                    dates.get(i).toLocalDateTime()
+            );
+            entityManager.persist(seat);
+            entityManager.persist(seat1);
+        }
+
     }
 }

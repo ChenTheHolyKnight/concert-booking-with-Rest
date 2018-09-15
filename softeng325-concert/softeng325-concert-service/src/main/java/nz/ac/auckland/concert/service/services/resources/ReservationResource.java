@@ -1,10 +1,13 @@
 package nz.ac.auckland.concert.service.services.resources;
 
+import nz.ac.auckland.concert.common.dto.ReservationDTO;
 import nz.ac.auckland.concert.common.dto.ReservationRequestDTO;
+import nz.ac.auckland.concert.common.dto.SeatDTO;
 import nz.ac.auckland.concert.common.message.Messages;
 import nz.ac.auckland.concert.common.types.PriceBand;
 import nz.ac.auckland.concert.service.domain.model.*;
 import nz.ac.auckland.concert.service.services.PersistenceManager;
+import nz.ac.auckland.concert.service.services.mapper.SeatMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,7 +18,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.core.Cookie;
 import javax.ws.rs.core.Response;
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static nz.ac.auckland.concert.common.Config.*;
 
@@ -74,12 +79,19 @@ public class ReservationResource extends ServiceResource {
         if(availableSeats.size()!=requestAmount){
             return Response.status(Response.Status.BAD_REQUEST).entity(Messages.INSUFFICIENT_SEATS_AVAILABLE_FOR_RESERVATION).build();
         }
+        Set<SeatDTO> seats=new HashSet<>();
+        availableSeats.forEach(seat -> {
+            seats.add(SeatMapper.toDTO(seat));
+        });
+        ReservationDTO reservationDTO=new ReservationDTO(
+                reservationRequestDTO,
+                seats
+        );
 
 
 
 
-
-        return Response.status(Response.Status.OK).cookie(makeCookie(clientId)).build();
+        return Response.status(Response.Status.OK).cookie(makeCookie(clientId)).entity(reservationDTO).build();
 
     }
 

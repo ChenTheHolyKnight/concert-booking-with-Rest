@@ -36,11 +36,12 @@ public class Seat {
 	
 	public Seat() {}
 	
-	public Seat(SeatRow row, SeatNumber number,Reservation reservation,LocalDateTime date) {
+	public Seat(SeatRow row, SeatNumber number,PriceBand seatType,Reservation reservation,LocalDateTime date) {
 		_row = row;
 		_number = number;
 		_reservation=reservation;
 		_date=date;
+		_seatType=seatType;
 	}
 	
 	public SeatRow getRow() {

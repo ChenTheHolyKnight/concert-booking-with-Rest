@@ -314,184 +314,221 @@ PRICE_BAND</ColNames>
 _CONCERTS__ID</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="74" parent="13" name="FK7QYA75SRSIFIY5KYDSUC0LJHM_INDEX_9">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>PERFORMER__ID</ColNames>
-    </index>
-    <index id="75" parent="13" name="FK4LJ19PV33HC50SQEKRDKXPSMX_INDEX_9">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>_CONCERTS__ID</ColNames>
-    </index>
-    <key id="76" parent="13" name="CONSTRAINT_9F">
+    <key id="74" parent="13" name="CONSTRAINT_9F">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>PERFORMER__ID
 _CONCERTS__ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="77" parent="13" name="FK7QYA75SRSIFIY5KYDSUC0LJHM">
-      <ColNames>PERFORMER__ID</ColNames>
-      <RefSchemaName>PUBLIC</RefSchemaName>
-      <RefTableName>PERFORMERS</RefTableName>
-      <RefKeyName>CONSTRAINT_9</RefKeyName>
-      <RefColNames>_ID</RefColNames>
-    </foreign-key>
-    <foreign-key id="78" parent="13" name="FK4LJ19PV33HC50SQEKRDKXPSMX">
-      <ColNames>_CONCERTS__ID</ColNames>
+    <column id="75" parent="14" name="_ID">
+      <Position>1</Position>
+      <DataType>BIGINT(19)|-5s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="76" parent="14" name="_EXPIRYTIME">
+      <Position>2</Position>
+      <DataType>INTEGER(10)|4s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="77" parent="14" name="_ISCONFIRMED">
+      <Position>3</Position>
+      <DataType>BOOLEAN|16s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="78" parent="14" name="_DATE">
+      <Position>4</Position>
+      <DataType>TIMESTAMP(23,10)|93s</DataType>
+    </column>
+    <column id="79" parent="14" name="_NUMBEROFSEATS">
+      <Position>5</Position>
+      <DataType>INTEGER(10)|4s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="80" parent="14" name="_SEATTYPE">
+      <Position>6</Position>
+      <DataType>INTEGER(10)|4s</DataType>
+    </column>
+    <column id="81" parent="14" name="_CONCERT__ID">
+      <Position>7</Position>
+      <DataType>BIGINT(19)|-5s</DataType>
+    </column>
+    <column id="82" parent="14" name="_USER_ID">
+      <Position>8</Position>
+      <DataType>BIGINT(19)|-5s</DataType>
+    </column>
+    <index id="83" parent="14" name="PRIMARY_KEY_23">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="84" parent="14" name="FK8KM9FGEBHVSGMNO6HLGN07EVP_INDEX_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>_CONCERT__ID</ColNames>
+    </index>
+    <index id="85" parent="14" name="FKG0MS98B0WFSX7XMTI2QIX6JS9_INDEX_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>_USER_ID</ColNames>
+    </index>
+    <key id="86" parent="14" name="CONSTRAINT_23">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="87" parent="14" name="FK8KM9FGEBHVSGMNO6HLGN07EVP">
+      <ColNames>_CONCERT__ID</ColNames>
       <RefSchemaName>PUBLIC</RefSchemaName>
       <RefTableName>CONCERTS</RefTableName>
       <RefKeyName>CONSTRAINT_B</RefKeyName>
       <RefColNames>_ID</RefColNames>
     </foreign-key>
-    <column id="79" parent="14" name="_ID">
+    <foreign-key id="88" parent="14" name="FKG0MS98B0WFSX7XMTI2QIX6JS9">
+      <ColNames>_USER_ID</ColNames>
+      <RefSchemaName>PUBLIC</RefSchemaName>
+      <RefTableName>USER</RefTableName>
+      <RefKeyName>CONSTRAINT_27</RefKeyName>
+      <RefColNames>ID</RefColNames>
+    </foreign-key>
+    <column id="89" parent="15" name="RESERVATION__ID">
       <Position>1</Position>
       <DataType>BIGINT(19)|-5s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="80" parent="14" name="_CONCERTID">
-      <Position>2</Position>
-      <DataType>BIGINT(19)|-5s</DataType>
-    </column>
-    <column id="81" parent="14" name="_DATE">
-      <Position>3</Position>
-      <DataType>TIMESTAMP(23,10)|93s</DataType>
-    </column>
-    <column id="82" parent="14" name="_NUMBEROFSEATS">
-      <Position>4</Position>
-      <DataType>INTEGER(10)|4s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="83" parent="14" name="_SEATTYPE">
-      <Position>5</Position>
-      <DataType>INTEGER(10)|4s</DataType>
-    </column>
-    <index id="84" parent="14" name="PRIMARY_KEY_23">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>_ID</ColNames>
-      <Unique>1</Unique>
-    </index>
-    <key id="85" parent="14" name="CONSTRAINT_23">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>_ID</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="86" parent="15" name="RESERVATION__ID">
-      <Position>1</Position>
-      <DataType>BIGINT(19)|-5s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="87" parent="15" name="_SEATS__ID">
+    <column id="90" parent="15" name="_SEATS__ID">
       <Position>2</Position>
       <DataType>BIGINT(19)|-5s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="88" parent="15" name="PRIMARY_KEY_A2">
+    <index id="91" parent="15" name="PRIMARY_KEY_A2">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>RESERVATION__ID
 _SEATS__ID</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="89" parent="15" name="UK_DY0FDAKIMB0JL2OINMXD6LKW6_INDEX_A">
+    <index id="92" parent="15" name="UK_DY0FDAKIMB0JL2OINMXD6LKW6_INDEX_A">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>_SEATS__ID</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="90" parent="15" name="FKRNQQBG8T1P0FAEWJFTKNE62G_INDEX_A">
+    <index id="93" parent="15" name="FKRNQQBG8T1P0FAEWJFTKNE62G_INDEX_A">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>RESERVATION__ID</ColNames>
     </index>
-    <key id="91" parent="15" name="CONSTRAINT_A2">
+    <key id="94" parent="15" name="CONSTRAINT_A2">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>RESERVATION__ID
 _SEATS__ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="92" parent="15" name="UK_DY0FDAKIMB0JL2OINMXD6LKW6_INDEX_A">
+    <key id="95" parent="15" name="UK_DY0FDAKIMB0JL2OINMXD6LKW6_INDEX_A">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>_SEATS__ID</ColNames>
     </key>
-    <foreign-key id="93" parent="15" name="FKRNQQBG8T1P0FAEWJFTKNE62G">
+    <foreign-key id="96" parent="15" name="FKRNQQBG8T1P0FAEWJFTKNE62G">
       <ColNames>RESERVATION__ID</ColNames>
       <RefSchemaName>PUBLIC</RefSchemaName>
       <RefTableName>RESERVATION</RefTableName>
       <RefKeyName>CONSTRAINT_23</RefKeyName>
       <RefColNames>_ID</RefColNames>
     </foreign-key>
-    <foreign-key id="94" parent="15" name="FK2KCRJGVDJKUAB1C7X6KWI0EOQ">
+    <foreign-key id="97" parent="15" name="FK2KCRJGVDJKUAB1C7X6KWI0EOQ">
       <ColNames>_SEATS__ID</ColNames>
       <RefSchemaName>PUBLIC</RefSchemaName>
       <RefTableName>SEAT</RefTableName>
       <RefKeyName>CONSTRAINT_26</RefKeyName>
       <RefColNames>_ID</RefColNames>
     </foreign-key>
-    <column id="95" parent="16" name="_ID">
+    <column id="98" parent="16" name="_ID">
       <Position>1</Position>
       <DataType>BIGINT(19)|-5s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="96" parent="16" name="_NUMBER">
+    <column id="99" parent="16" name="_DATE">
       <Position>2</Position>
-      <DataType>INTEGER(10)|4s</DataType>
+      <DataType>TIMESTAMP(23,10)|93s</DataType>
     </column>
-    <column id="97" parent="16" name="_ROW">
+    <column id="100" parent="16" name="_NUMBER">
       <Position>3</Position>
       <DataType>INTEGER(10)|4s</DataType>
     </column>
-    <index id="98" parent="16" name="PRIMARY_KEY_26">
+    <column id="101" parent="16" name="_ROW">
+      <Position>4</Position>
+      <DataType>INTEGER(10)|4s</DataType>
+    </column>
+    <column id="102" parent="16" name="_SEATTYPE">
+      <Position>5</Position>
+      <DataType>INTEGER(10)|4s</DataType>
+    </column>
+    <column id="103" parent="16" name="_RESERVATION__ID">
+      <Position>6</Position>
+      <DataType>BIGINT(19)|-5s</DataType>
+    </column>
+    <index id="104" parent="16" name="PRIMARY_KEY_26">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>_ID</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="99" parent="16" name="CONSTRAINT_26">
+    <index id="105" parent="16" name="FK2G78T1MISI84P3SS8QETXJTJC_INDEX_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>_RESERVATION__ID</ColNames>
+    </index>
+    <key id="106" parent="16" name="CONSTRAINT_26">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>_ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="100" parent="17" name="ID">
+    <foreign-key id="107" parent="16" name="FK2G78T1MISI84P3SS8QETXJTJC">
+      <ColNames>_RESERVATION__ID</ColNames>
+      <RefSchemaName>PUBLIC</RefSchemaName>
+      <RefTableName>RESERVATION</RefTableName>
+      <RefKeyName>CONSTRAINT_23</RefKeyName>
+      <RefColNames>_ID</RefColNames>
+    </foreign-key>
+    <column id="108" parent="17" name="ID">
       <Position>1</Position>
       <DataType>BIGINT(19)|-5s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="101" parent="17" name="_FIRSTNAME">
+    <column id="109" parent="17" name="_FIRSTNAME">
       <Position>2</Position>
       <DataType>VARCHAR(255)|12s</DataType>
     </column>
-    <column id="102" parent="17" name="_LASTNAME">
+    <column id="110" parent="17" name="_LASTNAME">
       <Position>3</Position>
       <DataType>VARCHAR(255)|12s</DataType>
     </column>
-    <column id="103" parent="17" name="_PASSWORD">
+    <column id="111" parent="17" name="_PASSWORD">
       <Position>4</Position>
       <DataType>VARCHAR(255)|12s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="104" parent="17" name="_USERNAME">
+    <column id="112" parent="17" name="_USERNAME">
       <Position>5</Position>
       <DataType>VARCHAR(255)|12s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="105" parent="17" name="UUID">
+    <column id="113" parent="17" name="UUID">
       <Position>6</Position>
       <DataType>VARCHAR(255)|12s</DataType>
     </column>
-    <column id="106" parent="17" name="_CREDITCARD_ID">
+    <column id="114" parent="17" name="_CREDITCARD_ID">
       <Position>7</Position>
       <DataType>BIGINT(19)|-5s</DataType>
     </column>
-    <index id="107" parent="17" name="PRIMARY_KEY_27">
+    <index id="115" parent="17" name="PRIMARY_KEY_27">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="108" parent="17" name="FK5L3KD34TR55SWHPAI6HNQNA77_INDEX_2">
+    <index id="116" parent="17" name="FK5L3KD34TR55SWHPAI6HNQNA77_INDEX_2">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>_CREDITCARD_ID</ColNames>
     </index>
-    <key id="109" parent="17" name="CONSTRAINT_27">
+    <key id="117" parent="17" name="CONSTRAINT_27">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="110" parent="17" name="FK5L3KD34TR55SWHPAI6HNQNA77">
+    <foreign-key id="118" parent="17" name="FK5L3KD34TR55SWHPAI6HNQNA77">
       <ColNames>_CREDITCARD_ID</ColNames>
       <RefSchemaName>PUBLIC</RefSchemaName>
       <RefTableName>CREDITCARD</RefTableName>

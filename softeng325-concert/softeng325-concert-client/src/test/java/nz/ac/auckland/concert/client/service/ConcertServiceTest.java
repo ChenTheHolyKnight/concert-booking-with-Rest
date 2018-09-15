@@ -242,6 +242,7 @@ public class ConcertServiceTest {
 
 			// Check that the seats reserved are of the required type.
 			for(SeatDTO seat : reservedSeats) {
+				Set<SeatRow> result=TheatreLayout.getRowsForPriceBand(PriceBand.PriceBandC);
 				assertTrue(TheatreLayout.getRowsForPriceBand(PriceBand.PriceBandC).contains(seat.getRow()));
 			}
 			

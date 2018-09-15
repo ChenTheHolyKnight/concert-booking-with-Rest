@@ -36,8 +36,7 @@ public class ReservationDTO {
 	
 	public ReservationDTO() {}
 	
-	public ReservationDTO(Long id, ReservationRequestDTO request, Set<SeatDTO> seats) {
-		_id = id;
+	public ReservationDTO( ReservationRequestDTO request, Set<SeatDTO> seats) {
 		_request = request;
 		_seats = new HashSet<SeatDTO>(seats);
 	}
