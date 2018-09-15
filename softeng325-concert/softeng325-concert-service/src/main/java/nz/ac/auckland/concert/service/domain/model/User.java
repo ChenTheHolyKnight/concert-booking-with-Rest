@@ -6,7 +6,7 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import javax.persistence.*;
 
 /**
- * DTO class to represent users. 
+ * Model class to represent users.
  * 
  * A User describes a user in terms of:
  * _username  the user's unique username.

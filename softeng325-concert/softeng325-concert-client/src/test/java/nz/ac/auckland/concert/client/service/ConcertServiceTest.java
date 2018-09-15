@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.color.ICC_ColorSpace;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -438,7 +439,14 @@ public class ConcertServiceTest {
 	@Test
 	public void testImage(){
 		Set<PerformerDTO> performerDTOList=_service.getPerformers();
-		PerformerDTO performerDTO=performerDTOList.iterator().next();
+		List<PerformerDTO> performerDTOs=new ArrayList<>();
+		performerDTOs.addAll(performerDTOList);
+		PerformerDTO performerDTO=null;
+		for(PerformerDTO p:performerDTOs){
+			if(p.getName().equals("Ariana Grande")){
+				performerDTO=p;
+			}
+		}
 		Image image=_service.getImageForPerformer(performerDTO);
 		assertFalse(image==null);
 	}

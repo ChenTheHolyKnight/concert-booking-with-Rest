@@ -29,13 +29,11 @@ public class CreditCardResource extends ServiceResource{
     @Path(REGISTER_CREDITCARD)
     public Response registerCreditCard(CreditCardDTO creditCardDTO, @CookieParam(COOKIE) Cookie clientId){
         if(clientId==null){
-            System.out.println("in");
             return Response.status(Response.Status.UNAUTHORIZED).entity(Messages.UNAUTHENTICATED_REQUEST).build();
         }
         String uuid=clientId.getValue();
         EntityManager entityManager=_persistenceManager.createEntityManager();
         List<User> users=entityManager.createQuery("select u from User u where uuid =\'"+uuid+"\'").getResultList();
-        System.out.println(users.size());
         if(users.isEmpty()){
             return Response.status(Response.Status.UNAUTHORIZED).entity(Messages.BAD_AUTHENTICATON_TOKEN).build();
         }

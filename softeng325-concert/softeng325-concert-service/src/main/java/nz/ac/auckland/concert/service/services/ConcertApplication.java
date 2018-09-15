@@ -1,10 +1,7 @@
 package nz.ac.auckland.concert.service.services;
 
 import nz.ac.auckland.concert.service.domain.model.CreditCard;
-import nz.ac.auckland.concert.service.services.resources.ConcertResource;
-import nz.ac.auckland.concert.service.services.resources.CreditCardResource;
-import nz.ac.auckland.concert.service.services.resources.PerformerResource;
-import nz.ac.auckland.concert.service.services.resources.UserResource;
+import nz.ac.auckland.concert.service.services.resources.*;
 import org.jboss.resteasy.plugins.providers.jaxb.JAXBXmlTypeProvider;
 
 import javax.persistence.EntityManager;
@@ -40,6 +37,7 @@ public class ConcertApplication extends Application {
         classes.add(PerformerResource.class);
         classes.add(UserResource.class);
         classes.add(CreditCardResource.class);
+        classes.add(ReservationResource.class);
         singleton.add(persistenceManager);
     }
 

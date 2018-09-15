@@ -29,13 +29,16 @@ public class Reservation {
 	private ReservationRequest _request;
 	@OneToMany
 	private Set<Seat> _seats;
+    @ManyToOne
+    private User _user;
+	private boolean isConfirmed;
 
 	public Reservation() {}
 
-	public Reservation(Long id, ReservationRequest request, Set<Seat> seats) {
-		_id = id;
+	public Reservation( ReservationRequest request, Set<Seat> seats,User user) {
 		_request = request;
 		_seats = new HashSet<Seat>(seats);
+		_user = user;
 	}
 	
 	public Long getId() {
@@ -49,6 +52,18 @@ public class Reservation {
 	public Set<Seat> getSeats() {
 		return Collections.unmodifiableSet(_seats);
 	}
+
+	public boolean getIsConfirmed() {
+		return isConfirmed;
+	}
+
+	public void setConfirmed(boolean confirmed) {
+		isConfirmed = confirmed;
+	}
+
+    public User getUser() {
+        return _user;
+    }
 	
 	@Override
 	public boolean equals(Object obj) {
@@ -71,4 +86,6 @@ public class Reservation {
 	            append(_seats).
 	            hashCode();
 	}
+
+
 }

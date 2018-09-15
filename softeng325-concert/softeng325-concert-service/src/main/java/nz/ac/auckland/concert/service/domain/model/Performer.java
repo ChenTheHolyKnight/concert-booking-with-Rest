@@ -37,7 +37,7 @@ public class Performer {
 
 
 
-	@ManyToMany
+	@ManyToMany(mappedBy = "_performers")
 	private Set<Concert> _concerts;
 	
 	public Performer() {}

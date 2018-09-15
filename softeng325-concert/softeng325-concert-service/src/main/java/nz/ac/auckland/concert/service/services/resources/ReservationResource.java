@@ -1,0 +1,112 @@
+package nz.ac.auckland.concert.service.services.resources;
+
+import nz.ac.auckland.concert.common.dto.ReservationDTO;
+import nz.ac.auckland.concert.common.dto.ReservationRequestDTO;
+import nz.ac.auckland.concert.common.dto.SeatDTO;
+import nz.ac.auckland.concert.common.message.Messages;
+import nz.ac.auckland.concert.service.domain.model.*;
+import nz.ac.auckland.concert.service.services.PersistenceManager;
+import nz.ac.auckland.concert.service.services.mapper.SeatMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.persistence.EntityManager;
+import javax.ws.rs.CookieParam;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.core.Cookie;
+import javax.ws.rs.core.Response;
+
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import static nz.ac.auckland.concert.common.Config.COOKIE;
+import static nz.ac.auckland.concert.common.Config.RESERVATION_URI;
+import static nz.ac.auckland.concert.common.Config.RESERVE_SEAT;
+
+@Path(RESERVATION_URI)
+public class ReservationResource extends ServiceResource {
+    private static Logger _logger = LoggerFactory
+            .getLogger(ConcertResource.class);
+
+    // Declare necessary instance variables.
+    private PersistenceManager _persistenceManager;
+
+    private EntityManager _entityManager;
+
+    public ReservationResource(){
+        _persistenceManager=PersistenceManager.instance();
+    }
+
+    @POST
+    @Path(RESERVE_SEAT)
+    public Response reserveSeats(ReservationRequestDTO reservationRequestDTO, @CookieParam(COOKIE) Cookie clientId){
+
+
+        if(clientId==null){
+            System.out.println("hello");
+            System.out.println(clientId);
+            return Response.status(Response.Status.UNAUTHORIZED).entity(Messages.UNAUTHENTICATED_REQUEST).build();
+        }
+        String uuid=clientId.getValue();
+        _entityManager=_persistenceManager.createEntityManager();
+        _entityManager.getTransaction().begin();
+        List<User> users=_entityManager.createQuery("select u from User u where uuid =\'"+uuid+"\'").getResultList();
+        if(users.isEmpty()){
+            return Response.status(Response.Status.UNAUTHORIZED).entity(Messages.BAD_AUTHENTICATON_TOKEN).build();
+        }
+        User user=users.get(0);
+
+        if(isIncompletion(reservationRequestDTO)){
+            return Response.status(Response.Status.BAD_REQUEST).entity(Messages.RESERVATION_REQUEST_WITH_MISSING_FIELDS).build();
+        }
+
+        /*Reservation reservation=convertReservation(reservationRequestDTO,user);
+        _entityManager.persist(reservation);
+        _entityManager.getTransaction().commit();*/
+
+
+
+        return Response.status(Response.Status.OK).cookie(makeCookie(clientId)).build();
+
+    }
+
+    private Reservation convertReservation(ReservationRequestDTO reservationRequestDTO, User user){
+        return null;
+    }
+
+    private ReservationRequest convertReservationRequest(ReservationRequestDTO reservationRequestDTO){
+        Long id=reservationRequestDTO.getConcertId();
+        List<Concert> concerts=_entityManager.createQuery("select c from Concert c where _ID =\'"+id+"\'").getResultList();
+        Concert concert = null;
+        if(!concerts.isEmpty()){
+            concert=concerts.get(0);
+        }
+
+        return new ReservationRequest(
+                reservationRequestDTO.getNumberOfSeats(),
+                reservationRequestDTO.getSeatType(),
+                concert,
+                reservationRequestDTO.getDate()
+        );
+    }
+
+    private boolean isIncompletion(ReservationRequestDTO reservationRequestDTODTO){
+        if(reservationRequestDTODTO.getSeatType()==null){
+            return true;
+        }
+        if(reservationRequestDTODTO.getConcertId()==null){
+            return true;
+        }
+        if(reservationRequestDTODTO.getDate()==null){
+            return true;
+        }
+        return false;
+    }
+
+
+
+
+}

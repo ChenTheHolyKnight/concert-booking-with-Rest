@@ -2,6 +2,7 @@ package nz.ac.auckland.concert.common;
 
 public class Config {
 
+    //URI for the web service
     public final static String WEB_SERVICE_URI="http://localhost:10000/services";
 
     //URI for the concert
@@ -26,6 +27,12 @@ public class Config {
 
     public final static String REGISTER_CREDITCARD = "/register";
 
+    //URI for reservation
+    public final static String RESERVATION_URI="/reservation";
+
+    public final static String RESERVE_SEAT="/reserve";
+
     //URI for the cookie
     public static final String COOKIE = "clientId";
+
 }

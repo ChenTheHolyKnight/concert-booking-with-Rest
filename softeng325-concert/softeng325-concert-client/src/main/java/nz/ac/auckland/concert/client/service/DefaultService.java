@@ -1,10 +1,5 @@
 package nz.ac.auckland.concert.client.service;
 
-import com.amazonaws.auth.AWSStaticCredentialsProvider;
-import com.amazonaws.auth.BasicAWSCredentials;
-import com.amazonaws.regions.Regions;
-import com.amazonaws.services.s3.AmazonS3;
-import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import nz.ac.auckland.concert.common.Config;
 import nz.ac.auckland.concert.common.dto.*;
 import nz.ac.auckland.concert.common.message.Messages;
@@ -142,7 +137,22 @@ public class DefaultService implements ConcertService{
 
     @Override
     public ReservationDTO reserveSeats(ReservationRequestDTO reservationRequest) throws ServiceException {
-        return null;
+        try {
+            client=ClientBuilder.newClient();
+            Builder builder=client.target(WEB_SERVICE_URI+RESERVATION_URI+RESERVE_SEAT).request().accept(MediaType.APPLICATION_XML);
+            addCookieToInvocation(builder);
+            _response=builder.post(Entity.entity(reservationRequest,MediaType.APPLICATION_XML));
+            if (_response.getStatus()==Response.Status.OK.getStatusCode()){
+                return _response.readEntity(ReservationDTO.class);
+            } else {
+                throw new ServiceException(_response.readEntity(String.class));
+            }
+        } catch (ProcessingException e){
+            throw new ServiceException(Messages.SERVICE_COMMUNICATION_ERROR);
+        }finally {
+            processCookieFromResponse(_response);
+            client.close();
+        }
     }
 
     @Override

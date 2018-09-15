@@ -4,8 +4,10 @@ import nz.ac.auckland.concert.common.types.PriceBand;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Embeddable;
 import javax.persistence.Enumerated;
+import javax.persistence.ManyToOne;
 import java.time.LocalDateTime;
 
 /**
@@ -25,15 +27,16 @@ public class ReservationRequest {
 	private int _numberOfSeats;
 	@Enumerated
 	private PriceBand _seatType;
-	private Long _concertId;
+	@ManyToOne(cascade = CascadeType.PERSIST)
+	private Concert _concert;
 	private LocalDateTime _date;
 	
 	public ReservationRequest() {}
 	
-	public ReservationRequest(int numberOfSeats, PriceBand seatType, Long concertId, LocalDateTime date) {
+	public ReservationRequest(int numberOfSeats, PriceBand seatType, Concert concert, LocalDateTime date) {
 		_numberOfSeats = numberOfSeats;
 		_seatType = seatType;
-		_concertId = concertId;
+		_concert = concert;
 		_date = date;
 	}
 	
@@ -45,8 +48,8 @@ public class ReservationRequest {
 		return _seatType;
 	}
 	
-	public Long getConcertId() {
-		return _concertId;
+	public Concert getConcert() {
+		return _concert;
 	}
 	
 	public LocalDateTime getDate() {
@@ -64,7 +67,7 @@ public class ReservationRequest {
         return new EqualsBuilder().
             append(_numberOfSeats, rhs._numberOfSeats).
             append(_seatType, rhs._seatType).
-            append(_concertId, rhs._concertId).
+            append(_concert, rhs._concert).
             append(_date, rhs._date).
             isEquals();
 	}
@@ -74,8 +77,10 @@ public class ReservationRequest {
 		return new HashCodeBuilder(17, 31). 
 	            append(_numberOfSeats).
 	            append(_seatType).
-	            append(_concertId).
+	            append(_concert).
 	            append(_date).
 	            hashCode();
 	}
+
+
 }
