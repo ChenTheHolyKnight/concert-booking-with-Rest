@@ -107,6 +107,7 @@ public class ReservationResource extends ServiceResource {
         );
         reservation.assignReservationToSeat(reservation);
         _entityManager.persist(reservation);
+        _entityManager.flush();
         _entityManager.getTransaction().commit();
 
 
@@ -181,6 +182,9 @@ public class ReservationResource extends ServiceResource {
             );
             bookingDTOS.add(bookingDTO);
         });
+        _entityManager.flush();
+        _entityManager.getTransaction().commit();
+
         GenericEntity<Set<BookingDTO>> entity = new GenericEntity<Set<BookingDTO>>(bookingDTOS) {};
         return Response.status(Response.Status.OK).entity(entity).cookie(makeCookie(clientId)).build();
     }

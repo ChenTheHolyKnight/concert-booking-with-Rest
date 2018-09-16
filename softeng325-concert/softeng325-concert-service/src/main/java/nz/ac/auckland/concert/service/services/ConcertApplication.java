@@ -76,23 +76,8 @@ public class ConcertApplication extends Application {
             constructThreatre(rowA,PriceBand.PriceBandA,dateTime,entityManager);
             constructThreatre(rowB,PriceBand.PriceBandB,dateTime,entityManager);
             constructThreatre(rowC,PriceBand.PriceBandC,dateTime,entityManager);
-            /*Seat seat=new Seat(
-                    SeatRow.N,
-                    new SeatNumber(1),
-                    PriceBand.PriceBandC,
-                    null,
-                    dates.get(i).toLocalDateTime()
-            );
-            Seat seat1=new Seat(
-                    SeatRow.H,
-                    new SeatNumber(1),
-                    PriceBand.PriceBandC,
-                    null,
-                    dates.get(i).toLocalDateTime()
-            );
-            entityManager.persist(seat);
-            entityManager.persist(seat1);*/
-
+            entityManager.flush();
+            entityManager.clear();
         }
 
     }
