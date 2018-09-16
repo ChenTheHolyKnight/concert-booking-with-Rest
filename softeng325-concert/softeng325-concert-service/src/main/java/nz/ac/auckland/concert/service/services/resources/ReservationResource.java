@@ -160,6 +160,7 @@ public class ReservationResource extends ServiceResource {
         Long expiry=reservationDomain.getExpiryTime();
         Long current=System.currentTimeMillis();
         if(expiry<current){
+            removeExpiredReservation();
             return Response.status(Response.Status.BAD_REQUEST).entity(Messages.EXPIRED_RESERVATION).build();
         }
         reservationDomain.setConfirmed(true);
@@ -204,5 +205,22 @@ public class ReservationResource extends ServiceResource {
 
         GenericEntity<Set<BookingDTO>> entity = new GenericEntity<Set<BookingDTO>>(bookingDTOS) {};
         return Response.status(Response.Status.OK).entity(entity).cookie(makeCookie(clientId)).build();
+    }
+
+    private void removeExpiredReservation(){
+        List<Reservation> reservations=_entityManager.createQuery("select r from Reservation r where r._expiryTime<:current")
+                .setParameter("current",System.currentTimeMillis())
+                .getResultList();
+
+        reservations.forEach(reservation -> {
+            Set<Seat> seats=reservation.getSeats();
+            seats.forEach(seat -> {
+                seat.setReservation(null);
+                _entityManager.persist(seat);
+            });
+            _entityManager.remove(reservation);
+            _entityManager.getTransaction().commit();
+
+        });
     }
 }
