@@ -37,6 +37,7 @@ public class ReservationResource extends ServiceResource {
 
     private EntityManager _entityManager;
 
+    private static long EXPIRY_TIME = 5L;
     public ReservationResource(){
         _persistenceManager=PersistenceManager.instance();
     }
@@ -90,7 +91,7 @@ public class ReservationResource extends ServiceResource {
                 reservationRequestDTO,
                 seats
         );
-        long expiry=System.currentTimeMillis()+5;
+        long expiry=System.currentTimeMillis()+EXPIRY_TIME*1000;
         ReservationRequest reservationRequest=new ReservationRequest(
               reservationRequestDTO.getNumberOfSeats(),
               reservationRequestDTO.getSeatType(),
@@ -161,7 +162,9 @@ public class ReservationResource extends ServiceResource {
         if(expiry<current){
             return Response.status(Response.Status.BAD_REQUEST).entity(Messages.EXPIRED_RESERVATION).build();
         }
-
+        reservationDomain.setConfirmed(true);
+        _entityManager.persist(reservationDomain);
+        _entityManager.getTransaction().commit();
         return Response.status(Response.Status.OK).build();
     }
     @GET
