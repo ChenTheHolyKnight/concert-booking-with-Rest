@@ -42,6 +42,9 @@ public class User {
 		_firstname = firstname;
 		_uuid=uuid;
 	}
+	public Long getId(){
+		return id;
+	}
 
 	public String getUsername() {
 		return _username;

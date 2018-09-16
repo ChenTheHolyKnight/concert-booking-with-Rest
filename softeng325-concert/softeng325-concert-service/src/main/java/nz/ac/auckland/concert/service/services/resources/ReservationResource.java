@@ -110,6 +110,7 @@ public class ReservationResource extends ServiceResource {
         _entityManager.flush();
         _entityManager.getTransaction().commit();
 
+        reservationDTO.setId(reservation.getId());
 
         return Response.created(URI.create(RESERVE_SEAT+"/"+reservation)).cookie(makeCookie(clientId)).entity(reservationDTO).build();
     }
@@ -149,7 +150,17 @@ public class ReservationResource extends ServiceResource {
             return Response.status(Response.Status.BAD_REQUEST).entity(Messages.CREDIT_CARD_NOT_REGISTERED).build();
         }
 
+        List<Reservation> reservations=_entityManager.createQuery("select r from Reservation r where r._id =:id and r._user=:user")
+                .setParameter("id",reservation.getId())
+                .setParameter("user",user)
+                .getResultList();
 
+        Reservation reservationDomain=reservations.get(0);
+        Long expiry=reservationDomain.getExpiryTime();
+        Long current=System.currentTimeMillis();
+        if(expiry<current){
+            return Response.status(Response.Status.BAD_REQUEST).entity(Messages.EXPIRED_RESERVATION).build();
+        }
 
         return Response.status(Response.Status.OK).build();
     }

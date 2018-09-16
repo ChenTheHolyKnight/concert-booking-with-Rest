@@ -44,6 +44,10 @@ public class ReservationDTO {
 	public Long getId() {
 		return _id;
 	}
+
+	public void setId(Long id){
+		_id=id;
+	}
 	
 	public ReservationRequestDTO getReservationRequest() {
 		return _request;
