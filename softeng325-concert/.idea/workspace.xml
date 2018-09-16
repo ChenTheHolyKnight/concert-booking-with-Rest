@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5527870a-7854-4f8d-bbdf-dd15d0c0541c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../Report.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../Report.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/services/resources/SubscribeResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/softeng325-concert-common/src/main/java/nz/ac/auckland/concert/common/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/softeng325-concert-common/src/main/java/nz/ac/auckland/concert/common/Config.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/softeng325-concert-service/target/" />
     <ignored path="$PROJECT_DIR$/softeng325-concert-client/target/" />
@@ -63,8 +65,8 @@
           <entry key="BID" value="1" />
           <entry key="BID_ONETOMANY" value="1" />
           <entry key="BILLINGDETAILS" value="1" />
-          <entry key="BOOKING" value="2" />
-          <entry key="BOOKING_SEAT" value="1" />
+          <entry key="BOOKING" value="3" />
+          <entry key="BOOKING_SEAT" value="2" />
           <entry key="CATEGORY" value="1" />
           <entry key="CATEGORY_ITEM" value="1" />
           <entry key="CONCERT" value="12" />
@@ -82,8 +84,8 @@
           <entry key="PERFORMER" value="1" />
           <entry key="PERFORMERS" value="4" />
           <entry key="PRIMARY_KEY_27" value="1" />
-          <entry key="RESERVATION" value="14" />
-          <entry key="RESERVATION_SEAT" value="6" />
+          <entry key="RESERVATION" value="15" />
+          <entry key="RESERVATION_SEAT" value="7" />
           <entry key="SEAT" value="21" />
           <entry key="SHIPMENT_ONETOONE" value="1" />
           <entry key="USER" value="23" />
@@ -91,7 +93,7 @@
           <entry key="USER_ONETOONE" value="1" />
           <entry key="class" value="48" />
           <entry key="iml" value="1" />
-          <entry key="java" value="261" />
+          <entry key="java" value="263" />
           <entry key="properties" value="2" />
           <entry key="sql" value="11" />
           <entry key="xml" value="12" />
@@ -100,9 +102,9 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="48" />
-          <entry key="Database Element" value="132" />
+          <entry key="Database Element" value="136" />
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="261" />
+          <entry key="JAVA" value="263" />
           <entry key="Properties" value="2" />
           <entry key="SQL" value="8" />
           <entry key="Scratch" value="4" />
@@ -112,13 +114,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="4" />
-          <entry key="java" value="12711" />
+          <entry key="java" value="12907" />
           <entry key="xml" value="34" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="12711" />
+          <entry key="JAVA" value="12907" />
           <entry key="PLAIN_TEXT" value="4" />
           <entry key="XML" value="34" />
         </counts>
@@ -155,10 +157,14 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/services/ConcertApplication.java">
+        <entry file="file://$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/services/resources/SubscribeResource.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="369">
-              <caret line="98" column="31" selection-start-line="98" selection-start-column="26" selection-end-line="98" selection-end-column="31" />
+            <state relative-caret-position="213">
+              <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#219#234#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -228,7 +234,6 @@
         <option value="$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/services/mapper/ReservationMapper.java" />
         <option value="$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/services/resources/ServiceResource.java" />
         <option value="$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/services/mapper/SeatMapper.java" />
-        <option value="$PROJECT_DIR$/softeng325-concert-common/src/main/java/nz/ac/auckland/concert/common/Config.java" />
         <option value="$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/services/resources/ConcertResource.java" />
         <option value="$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/domain/model/Seat.java" />
         <option value="$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/domain/model/Reservation.java" />
@@ -242,6 +247,8 @@
         <option value="$PROJECT_DIR$/softeng325-concert-service/src/main/resources/META-INF/persistence.xml" />
         <option value="$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/domain/model/News.java" />
         <option value="$PROJECT_DIR$/softeng325-concert-common/src/main/java/nz/ac/auckland/concert/common/dto/NewsDTO.java" />
+        <option value="$PROJECT_DIR$/softeng325-concert-common/src/main/java/nz/ac/auckland/concert/common/Config.java" />
+        <option value="$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/services/resources/SubscribeResource.java" />
       </list>
     </option>
   </component>
@@ -274,7 +281,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="425" />
     <option name="y" value="-15" />
     <option name="width" value="1210" />
@@ -567,7 +574,7 @@
     <property name="DatabaseDriversLRU" value="h2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537093195310" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537096800023" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Labs/Lab4" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -765,17 +772,11 @@
       <workItem from="1536821017964" duration="14560000" />
       <workItem from="1536841016853" duration="14469000" />
       <workItem from="1536966605249" duration="34389000" />
-      <workItem from="1537013496565" duration="33518000" />
+      <workItem from="1537013496565" duration="36090000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ConcertServiceTest_testConfirmBookingWithExpiredReservation - 2018.09.16 at 16h 47m 06s.xml">
-      <configuration name="ConcertServiceTest.testConfirmBookingWithExpiredReservation" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ConcertServiceTest_testConfirmBookingWithExpiredReservation - 2018.09.16 at 16h 47m 24s.xml">
-      <configuration name="ConcertServiceTest.testConfirmBookingWithExpiredReservation" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="ConcertServiceTest_testConfirmBookingWithExpiredReservation - 2018.09.16 at 16h 48m 30s.xml">
       <configuration name="ConcertServiceTest.testConfirmBookingWithExpiredReservation" configurationId="JUnit" />
     </history-entry>
@@ -800,12 +801,18 @@
     <history-entry file="ConcertServiceTest - 2018.09.16 at 20h 00m 57s.xml">
       <configuration name="ConcertServiceTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="ConcertServiceTest - 2018.09.16 at 22h 20m 15s.xml">
+      <configuration name="ConcertServiceTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ConcertServiceTest - 2018.09.16 at 22h 33m 01s.xml">
+      <configuration name="ConcertServiceTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="142410000" />
+    <option name="totallyTimeSpent" value="144982000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Capture Tool" order="0" />
@@ -813,7 +820,7 @@
       <window_info id="UI Designer" order="2" />
       <window_info id="Learn" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.27919462" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.27919462" />
       <window_info id="Structure" order="6" weight="0.25" />
       <window_info id="Image Layers" order="7" />
       <window_info anchor="bottom" id="Event Log" order="0" side_tool="true" />
@@ -836,7 +843,7 @@
       <window_info anchor="right" id="Theme Preview" order="2" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Commander" order="4" weight="0.4" />
-      <window_info active="true" anchor="right" id="Database" order="5" visible="true" weight="0.18590604" />
+      <window_info anchor="right" id="Database" order="5" weight="0.18590604" />
       <window_info anchor="right" id="Maven Projects" order="6" weight="0.18120806" />
       <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
@@ -866,23 +873,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/domain/model/CreditCard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="31" column="57" selection-start-line="31" selection-start-column="57" selection-end-line="31" selection-end-column="57" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/softeng325-concert-common/src/main/java/nz/ac/auckland/concert/common/types/SeatRow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/softeng325-concert-service/src/main/resources/db-init.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -963,13 +953,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://60c29975-5937-454d-8efd-1c1a01fcf8d8/database/TEST/schema/PUBLIC/table/BOOKING">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/softeng325-concert-common/src/main/java/nz/ac/auckland/concert/common/types/SeatNumber.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -1006,13 +989,6 @@
         <state relative-caret-position="-960" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/softeng325-concert-common/src/main/java/nz/ac/auckland/concert/common/Config.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="36" column="47" selection-start-line="36" selection-start-column="47" selection-end-line="36" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/services/resources/ConcertResource.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-85">
@@ -1031,13 +1007,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="247" selection-start-line="247" selection-end-line="247" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://60c29975-5937-454d-8efd-1c1a01fcf8d8/database/TEST/schema/PUBLIC/table/RESERVATION_SEAT">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -1147,13 +1116,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://60c29975-5937-454d-8efd-1c1a01fcf8d8/database/TEST/schema/PUBLIC/table/RESERVATION">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/services/resources/ReservationResource.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1496">
@@ -1237,13 +1199,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/services/resources/ServiceResource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="15" column="61" selection-start-line="15" selection-start-column="51" selection-end-line="15" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://60c29975-5937-454d-8efd-1c1a01fcf8d8/database/TEST/schema/PUBLIC/table/SEAT">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -1253,8 +1208,61 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/services/ConcertApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
+        <state relative-caret-position="1037">
           <caret line="98" column="31" selection-start-line="98" selection-start-column="26" selection-end-line="98" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/services/resources/ServiceResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="15" column="61" selection-start-line="15" selection-start-column="51" selection-end-line="15" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://60c29975-5937-454d-8efd-1c1a01fcf8d8/database/TEST/schema/PUBLIC/table/BOOKING_SEAT">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://60c29975-5937-454d-8efd-1c1a01fcf8d8/database/TEST/schema/PUBLIC/table/BOOKING">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://60c29975-5937-454d-8efd-1c1a01fcf8d8/database/TEST/schema/PUBLIC/table/RESERVATION_SEAT">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://60c29975-5937-454d-8efd-1c1a01fcf8d8/database/TEST/schema/PUBLIC/table/RESERVATION">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/softeng325-concert-common/src/main/java/nz/ac/auckland/concert/common/Config.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="41" column="57" selection-start-line="41" selection-start-column="57" selection-end-line="41" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/softeng325-concert-service/src/main/java/nz/ac/auckland/concert/service/services/resources/SubscribeResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#219#234#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

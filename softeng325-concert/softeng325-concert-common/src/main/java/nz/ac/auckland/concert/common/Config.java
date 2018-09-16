@@ -36,6 +36,11 @@ public class Config {
 
     public final static String BOOKING="/book";
 
+    //URI for subscription
+    public final static String SUBSCRIBE="/subscribe";
+
+    public final static String MAKESUBSCRIBE="/subscribes";
+
     //URI for the cookie
     public static final String COOKIE = "clientId";
 
