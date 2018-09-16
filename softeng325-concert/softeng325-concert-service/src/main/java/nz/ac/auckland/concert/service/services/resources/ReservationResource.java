@@ -38,6 +38,7 @@ public class ReservationResource extends ServiceResource {
     private EntityManager _entityManager;
 
     private static long EXPIRY_TIME = 5L;
+    private static long SEC_TO_MILLI = 1000L;
     public ReservationResource(){
         _persistenceManager=PersistenceManager.instance();
     }
@@ -91,7 +92,7 @@ public class ReservationResource extends ServiceResource {
                 reservationRequestDTO,
                 seats
         );
-        long expiry=System.currentTimeMillis()+EXPIRY_TIME*1000;
+        long expiry=System.currentTimeMillis()+EXPIRY_TIME*SEC_TO_MILLI;
         ReservationRequest reservationRequest=new ReservationRequest(
               reservationRequestDTO.getNumberOfSeats(),
               reservationRequestDTO.getSeatType(),
