@@ -436,7 +436,7 @@ public class ConcertServiceTest {
 	/**
      * My personal test to test the generated image is not null
      */
-	//@Test
+	@Test
 	public void testImage(){
 		Set<PerformerDTO> performerDTOList=_service.getPerformers();
 		List<PerformerDTO> performerDTOs=new ArrayList<>();
