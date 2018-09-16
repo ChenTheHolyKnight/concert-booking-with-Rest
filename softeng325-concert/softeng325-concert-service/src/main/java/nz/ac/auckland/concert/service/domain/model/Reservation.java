@@ -61,6 +61,12 @@ public class Reservation {
 		return Collections.unmodifiableSet(_seats);
 	}
 
+	public void assignReservationToSeat(Reservation reservation){
+	    _seats.forEach(seat -> {
+            seat.setReservation(reservation);
+        });
+    }
+
 	public boolean getIsConfirmed() {
 		return _isConfirmed;
 	}

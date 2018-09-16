@@ -105,6 +105,7 @@ public class ReservationResource extends ServiceResource {
                 users.get(0),
                 expiry
         );
+        reservation.assignReservationToSeat(reservation);
         _entityManager.persist(reservation);
         _entityManager.getTransaction().commit();
 

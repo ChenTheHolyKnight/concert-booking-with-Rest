@@ -58,6 +58,10 @@ public class Seat {
 		return _number;
 	}
 
+	public void setReservation(Reservation reservation){
+	    _reservation=reservation;
+    }
+
 	public Long getId(){
 		return _id;
 	}
