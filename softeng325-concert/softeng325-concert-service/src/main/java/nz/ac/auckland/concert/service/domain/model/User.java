@@ -29,6 +29,9 @@ public class User {
     @Column(name = "uuid")
 	private String _uuid;
 
+    @ManyToOne
+    private News _news;
+
 
     @OneToOne(cascade = CascadeType.ALL)
     private CreditCard _creditCard;
@@ -72,6 +75,14 @@ public class User {
 
     public void setCreditCard(CreditCard creditCard){
 	    _creditCard=creditCard;
+    }
+
+    public News getNews(){
+	    return _news;
+    }
+
+    public void setNews(News news){
+	    _news=news;
     }
 	
 	@Override

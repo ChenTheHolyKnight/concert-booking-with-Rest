@@ -5,9 +5,7 @@ import nz.ac.auckland.concert.common.dto.*;
 import nz.ac.auckland.concert.common.message.Messages;
 
 import javax.ws.rs.ProcessingException;
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.*;
 import javax.ws.rs.client.Invocation.Builder;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
@@ -20,7 +18,7 @@ import java.util.Set;
 
 import static nz.ac.auckland.concert.common.Config.*;
 
-public class DefaultService implements ConcertService{
+public class DefaultService implements ConcertService,NewsItemListener{
 
     Client client;
 
@@ -215,6 +213,11 @@ public class DefaultService implements ConcertService{
         }
     }
 
+    @Override
+    public void subscribeForNewsItems(NewsItemListener listener) throws ServiceException {
+
+    }
+
 
     // Method to add any cookie previously returned from the Web service to an
     // Invocation.Builder instance.
@@ -235,5 +238,17 @@ public class DefaultService implements ConcertService{
             String cookieValue = cookies.get(Config.COOKIE).getValue();
             _cookieValues.add(cookieValue);
         }
+    }
+
+    @Override
+    public void newsItemReceived(NewsDTO newsItem) {
+        Client client=ClientBuilder.newClient();
+        final WebTarget target = client.target( "chat" );
+        target.request().async().get( new InvocationCallback< String >() {
+            public void completed(String message ) {
+                target.request( ).async( ).get(this);
+            }
+            public void failed(Throwable t) {}
+        } );
     }
 }

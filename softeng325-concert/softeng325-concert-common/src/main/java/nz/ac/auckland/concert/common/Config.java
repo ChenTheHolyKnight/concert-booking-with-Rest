@@ -41,6 +41,8 @@ public class Config {
 
     public final static String MAKESUBSCRIBE="/subscribes";
 
+    public final static String SEND="/send";
+
     //URI for the cookie
     public static final String COOKIE = "clientId";
 
