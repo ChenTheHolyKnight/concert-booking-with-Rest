@@ -34,11 +34,12 @@ public class ConcertApplication extends Application {
         em.getTransaction().begin();
         em.createNativeQuery("DELETE FROM BOOKING_SEAT").executeUpdate();
         em.createNativeQuery("DELETE FROM BOOKING").executeUpdate();
-        em.createNativeQuery("DELETE FROM CREDITCARD").executeUpdate();
+
         em.createNativeQuery("DELETE FROM RESERVATION_SEAT").executeUpdate();
         em.createNativeQuery("DELETE FROM SEAT").executeUpdate();
         em.createNativeQuery("DELETE FROM RESERVATION").executeUpdate();
         em.createQuery("DELETE FROM User").executeUpdate();
+        em.createNativeQuery("DELETE FROM CREDITCARD").executeUpdate();
         generateSeats(em);
         em.flush();
         em.clear();

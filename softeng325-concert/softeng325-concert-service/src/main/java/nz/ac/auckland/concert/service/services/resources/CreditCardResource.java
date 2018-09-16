@@ -33,6 +33,7 @@ public class CreditCardResource extends ServiceResource{
         }
         String uuid=clientId.getValue();
         EntityManager entityManager=_persistenceManager.createEntityManager();
+        entityManager.getTransaction().begin();
         List<User> users=entityManager.createQuery("select u from User u where uuid =\'"+uuid+"\'").getResultList();
         if(users.isEmpty()){
             return Response.status(Response.Status.UNAUTHORIZED).entity(Messages.BAD_AUTHENTICATON_TOKEN).build();
@@ -40,7 +41,9 @@ public class CreditCardResource extends ServiceResource{
 
         User user=users.get(0);
         CreditCard creditCard= CreditCardMapper.ToDomain(creditCardDTO,user);
+        user.setCreditCard(creditCard);
         entityManager.persist(creditCard);
+        entityManager.getTransaction().commit();
 
         return Response.status(Response.Status.OK).cookie(makeCookie(clientId)).build();
     }

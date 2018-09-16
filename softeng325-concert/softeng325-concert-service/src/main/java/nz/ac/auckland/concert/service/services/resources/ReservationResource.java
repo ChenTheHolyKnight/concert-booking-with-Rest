@@ -145,8 +145,11 @@ public class ReservationResource extends ServiceResource {
 
         User user=users.get(0);
         if(user.getCreditCard()==null){
+            Response response=Response.status(Response.Status.BAD_REQUEST).entity(Messages.CREDIT_CARD_NOT_REGISTERED).build();
             return Response.status(Response.Status.BAD_REQUEST).entity(Messages.CREDIT_CARD_NOT_REGISTERED).build();
         }
+
+
 
         return Response.status(Response.Status.OK).build();
     }
