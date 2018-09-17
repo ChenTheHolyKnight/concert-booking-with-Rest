@@ -1,24 +1,18 @@
 package nz.ac.auckland.concert.service.services.resources;
 
 import nz.ac.auckland.concert.common.dto.NewsDTO;
-import nz.ac.auckland.concert.common.message.Messages;
-import nz.ac.auckland.concert.service.domain.model.News;
-import nz.ac.auckland.concert.service.domain.model.User;
 import nz.ac.auckland.concert.service.services.PersistenceManager;
 
 import javax.persistence.EntityManager;
 import javax.ws.rs.*;
 import javax.ws.rs.container.AsyncResponse;
 import javax.ws.rs.container.Suspended;
-import javax.ws.rs.core.Cookie;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import static nz.ac.auckland.concert.common.Config.*;
+import static nz.ac.auckland.concert.common.Config.SUBSCRIBE;
 
 @Path(SUBSCRIBE)
 @Consumes(MediaType.APPLICATION_XML)

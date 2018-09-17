@@ -160,7 +160,7 @@ public class DefaultService implements ConcertService{
             Builder builder=client.target(WEB_SERVICE_URI+RESERVATION_URI+CONFIRM).request().accept(MediaType.APPLICATION_XML);
             addCookieToInvocation(builder);
             _response=builder.post(Entity.entity(reservation,MediaType.APPLICATION_XML));
-            if (_response.getStatus()==Response.Status.OK.getStatusCode()){
+            if (_response.getStatus()==Response.Status.NO_CONTENT.getStatusCode()){
                 return;
             } else {
                 throw new ServiceException(_response.readEntity(String.class));

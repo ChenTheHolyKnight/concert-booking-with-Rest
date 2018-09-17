@@ -167,7 +167,7 @@ public class ReservationResource extends ServiceResource {
         reservationDomain.setConfirmed(true);
         _entityManager.persist(reservationDomain);
         _entityManager.getTransaction().commit();
-        return Response.status(Response.Status.OK).build();
+        return Response.status(Response.Status.NO_CONTENT).build();
     }
     @GET
     @Path(BOOKING)
