@@ -19,7 +19,7 @@ public class News {
     private LocalDateTime _date;
 
 
-    protected News() {
+    public News() {
     }
 
     public News(LocalDateTime date, String content) {

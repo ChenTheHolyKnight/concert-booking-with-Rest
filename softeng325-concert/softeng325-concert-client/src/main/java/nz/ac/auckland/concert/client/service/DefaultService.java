@@ -18,7 +18,7 @@ import java.util.Set;
 
 import static nz.ac.auckland.concert.common.Config.*;
 
-public class DefaultService implements ConcertService,NewsItemListener{
+public class DefaultService implements ConcertService{
 
     Client client;
 
@@ -213,10 +213,6 @@ public class DefaultService implements ConcertService,NewsItemListener{
         }
     }
 
-    @Override
-    public void subscribeForNewsItems(NewsItemListener listener) throws ServiceException {
-
-    }
 
 
     // Method to add any cookie previously returned from the Web service to an
@@ -238,17 +234,5 @@ public class DefaultService implements ConcertService,NewsItemListener{
             String cookieValue = cookies.get(Config.COOKIE).getValue();
             _cookieValues.add(cookieValue);
         }
-    }
-
-    @Override
-    public void newsItemReceived(NewsDTO newsItem) {
-        Client client=ClientBuilder.newClient();
-        final WebTarget target = client.target( "chat" );
-        target.request().async().get( new InvocationCallback< String >() {
-            public void completed(String message ) {
-                target.request( ).async( ).get(this);
-            }
-            public void failed(Throwable t) {}
-        } );
     }
 }

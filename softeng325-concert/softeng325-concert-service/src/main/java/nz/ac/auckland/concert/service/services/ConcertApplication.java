@@ -52,6 +52,7 @@ public class ConcertApplication extends Application {
         classes.add(CreditCardResource.class);
         classes.add(ReservationResource.class);
         singleton.add(persistenceManager);
+        singleton.add(SubscribeResource.instance());
         em.close();
     }
 

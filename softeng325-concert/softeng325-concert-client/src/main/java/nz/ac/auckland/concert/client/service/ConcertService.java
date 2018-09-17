@@ -243,6 +243,4 @@ public interface ConcertService {
 	 */
 	Set<BookingDTO> getBookings() throws ServiceException;
 
-
-	void subscribeForNewsItems(NewsItemListener listener) throws ServiceException;
 }

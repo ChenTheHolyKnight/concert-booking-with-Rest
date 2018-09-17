@@ -29,8 +29,6 @@ public class User {
     @Column(name = "uuid")
 	private String _uuid;
 
-    @ManyToOne
-    private News _news;
 
 
     @OneToOne(cascade = CascadeType.ALL)
@@ -77,13 +75,6 @@ public class User {
 	    _creditCard=creditCard;
     }
 
-    public News getNews(){
-	    return _news;
-    }
-
-    public void setNews(News news){
-	    _news=news;
-    }
 	
 	@Override
 	public boolean equals(Object obj) {

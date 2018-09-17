@@ -8,24 +8,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.EntityManager;
 import javax.swing.*;
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.*;
+import javax.ws.rs.core.GenericEntity;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 
-import nz.ac.auckland.concert.common.dto.BookingDTO;
-import nz.ac.auckland.concert.common.dto.ConcertDTO;
-import nz.ac.auckland.concert.common.dto.CreditCardDTO;
-import nz.ac.auckland.concert.common.dto.PerformerDTO;
-import nz.ac.auckland.concert.common.dto.ReservationDTO;
-import nz.ac.auckland.concert.common.dto.ReservationRequestDTO;
-import nz.ac.auckland.concert.common.dto.SeatDTO;
-import nz.ac.auckland.concert.common.dto.UserDTO;
+import nz.ac.auckland.concert.common.dto.*;
 import nz.ac.auckland.concert.common.message.Messages;
 import nz.ac.auckland.concert.common.types.PriceBand;
 import nz.ac.auckland.concert.common.types.SeatRow;
+import nz.ac.auckland.concert.service.domain.model.News;
 import nz.ac.auckland.concert.service.domain.model.Performer;
 import nz.ac.auckland.concert.service.services.ConcertApplication;
+import nz.ac.auckland.concert.service.services.PersistenceManager;
 import nz.ac.auckland.concert.utility.TheatreLayout;
 
 import org.eclipse.jetty.server.Server;
@@ -40,6 +38,7 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static nz.ac.auckland.concert.common.Config.*;
 import static org.junit.Assert.*;
 
 /**
@@ -78,6 +77,8 @@ public class ConcertServiceTest {
 	private static Server _server;
 	
 	private ConcertService _service;
+
+	private static NewsDTO _news;
 
 	@BeforeClass
 	public static void createClientAndServer() throws Exception {
@@ -450,4 +451,41 @@ public class ConcertServiceTest {
 		Image image=_service.getImageForPerformer(performerDTO);
 		assertFalse(image==null);
 	}
+
+	@Test
+    public void TestSubscription(){
+        LocalDateTime dateTime = LocalDateTime.of(2017, 2, 24, 17, 00);
+        NewsDTO news=new NewsDTO(dateTime,"No Content");
+
+        Client client1= ClientBuilder.newClient( );
+        final WebTarget target1 = client1.target(WEB_SERVICE_URI+SUBSCRIBE);
+        target1.request().async().get( new InvocationCallback<NewsDTO>( ) {
+
+            @Override
+            public void completed(NewsDTO message) {
+                _news=message;
+            }
+            @Override
+            public void failed(Throwable t) {
+                t.printStackTrace();
+            }});
+
+
+
+        Client client= ClientBuilder.newClient( );
+        final WebTarget target = client.target(WEB_SERVICE_URI+SUBSCRIBE);
+        target.request().post(Entity.entity(news, MediaType.APPLICATION_XML));
+        client.close();
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            fail();
+        }
+
+        assertEquals(_news.getContent(),"No Content");
+
+
+
+    }
 }
